@@ -1,6 +1,7 @@
 
-#include <QLabel>
-#include <QPushButton>
+#include <QScreen>
+#include <QRect>
+
 #include <QLineEdit>
 #include <QHBoxLayout>
 #include <QMenu>
@@ -8,26 +9,71 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include "headerbar.h"
+#include "layerwidget.h"
+#include "figurecontainer.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle("MyWindow");
-    resize(500, 600);
 
-    HeaderBar *headerBar = new HeaderBar(this);
+    setWindowTitle("Gimsep");
+    showMaximized();
 
+    setWindowIcon(QIcon(":/images/vgath-logo.png"));
 
-    /*QHBoxLayout *hbox = new QHBoxLayout(this);
-    //hbox->addWidget(headerBar);
+    LayerWidget *layerWidget = new LayerWidget(this);
+
+    //HeaderBar *headerBar = new HeaderBar(this);
+
+    FigureContainer *figureContainer = new FigureContainer();
+
+    QHBoxLayout *hbox = new QHBoxLayout(this);
+    hbox->addWidget(figureContainer);
+    hbox->addWidget(layerWidget);
 
     QWidget *placeholderWidget = new QWidget;
     placeholderWidget->setLayout(hbox);
-    setCentralWidget(placeholderWidget);*/
+    setCentralWidget(placeholderWidget);
 
+    //cv::Mat mat = cv::imread("./shinzo.jpg");
+
+/*
+    // Set the color table (used to translate colour indexes to qRgb values)
+    QVector<QRgb> colorTable;
+    for (int i=0; i<256; i++)
+            colorTable.push_back(qRgb(i,i,i));
+
+    // Copy input Mat
+    const uchar *qImageBuffer = (const uchar*)mat.data;
+        // Create QImage with same dimensions as input Mat
+    QImage img(qImageBuffer, mat.cols, mat.rows, mat.step, QImage::Format_Indexed8);
+    img.setColorTable(colorTable);
+*/
+    /*
+    const uchar *qImageBuffer = (const uchar*)mat.data;
+    // Create QImage with same dimensions as input Mat
+    QImage img(qImageBuffer, mat.cols, mat.rows, mat.step, QImage::Format_RGB888);
+    img = img.rgbSwapped();
+
+    QHBoxLayout *hbox = new QHBoxLayout(this);
+
+
+    QLabel *myLabel = new QLabel("wesh", this);
+    myLabel->setPixmap(QPixmap::fromImage(img));
+    //myLabel->setPixmap(QPixmap(":/images/shinzo.jpg"));
+
+    myLabel->move(600, 600);
+    myLabel->setStyleSheet("color: blue");
+
+    hbox->addWidget(myLabel);
+
+    QWidget *placeholderWidget = new QWidget;
+    placeholderWidget->setLayout(hbox);
+    setCentralWidget(placeholderWidget);
+*/
 /*
     QLabel *label = new QLabel("This is a test", this);
     label->setText("Wesh sahbi");

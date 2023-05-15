@@ -8,21 +8,39 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
+#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
+set(OpenCV_DIR "C:/prog/opencv/opencv-4.2.0-build2/install/x64/mingw/lib")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES Image-Editor_en_ZA.ts)
+set(CLASSES_DIR ./Classes)
 
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        headerbar.h headerbar.cpp headerbar.ui
+        layerwidget.h layerwidget.cpp layerwidget.ui
+
+        figurecontainer.h figurecontainer.cpp figurecontainer.ui
+        figurecontent.h figurecontent.cpp #figurecontent.ui
+        figureframe.h figureframe.cpp #figureframe.ui
+
+        ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
         res.qrc
         ${TS_FILES}
 )
+
+# headerbar.h headerbar.cpp headerbar.ui
+
+find_package( OpenCV REQUIRED )
+include_directories(${OpenCV_INCLUDE-DIRECTORIES})
+#I added this line because the compiler could not find the header when promoting a widget
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Image-Editor
@@ -51,7 +69,11 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(Image-Editor PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Image-Editor PRIVATE
+        Qt${QT_VERSION_MAJOR}::Widgets
+        ${OpenCV_LIBS}
+)
+#target_link_libraries(Image-Editor ${OpenCV_LIBS})
 
 set_target_properties(Image-Editor PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
