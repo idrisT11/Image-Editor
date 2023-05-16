@@ -1,4 +1,5 @@
-
+#include <opencv2/opencv.hpp>
+#include <iostream>
 #include "ImageTransformer.h"
 
 Mat ImageTransformer::drawPoint(Mat& img, Point p, const cv::Scalar& color, int thickness=1)

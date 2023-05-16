@@ -1,0 +1,4 @@
+Cannot generate into /Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor
+It is already used for project /Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor
+
+Please either delete it manually or select another generation directory
