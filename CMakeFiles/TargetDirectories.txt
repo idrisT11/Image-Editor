@@ -1,3 +1,0 @@
-/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles/Image-Editor.dir
-/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles/edit_cache.dir
-/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles/rebuild_cache.dir
