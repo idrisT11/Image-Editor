@@ -129,6 +129,30 @@ Image-Editor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/build
 .PHONY : Image-Editor/fast
 
+Classes/ImageTransformer.o: Classes/ImageTransformer.cpp.o
+.PHONY : Classes/ImageTransformer.o
+
+# target to build an object file
+Classes/ImageTransformer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.o
+.PHONY : Classes/ImageTransformer.cpp.o
+
+Classes/ImageTransformer.i: Classes/ImageTransformer.cpp.i
+.PHONY : Classes/ImageTransformer.i
+
+# target to preprocess a source file
+Classes/ImageTransformer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.i
+.PHONY : Classes/ImageTransformer.cpp.i
+
+Classes/ImageTransformer.s: Classes/ImageTransformer.cpp.s
+.PHONY : Classes/ImageTransformer.s
+
+# target to generate assembly for a file
+Classes/ImageTransformer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.s
+.PHONY : Classes/ImageTransformer.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Image-Editor"
+	@echo "... Classes/ImageTransformer.o"
+	@echo "... Classes/ImageTransformer.i"
+	@echo "... Classes/ImageTransformer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

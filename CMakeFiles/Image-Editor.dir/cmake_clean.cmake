@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.o"
+  "CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.o.d"
   "CMakeFiles/Image-Editor.dir/main.cpp.o"
   "CMakeFiles/Image-Editor.dir/main.cpp.o.d"
   "Image-Editor"

@@ -81,12 +81,12 @@ clean: CMakeFiles/Image-Editor.dir/clean
 CMakeFiles/Image-Editor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Image-Editor.dir/build.make CMakeFiles/Image-Editor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles" --progress-num=1,2 "Built target Image-Editor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles" --progress-num=1,2,3 "Built target Image-Editor"
 .PHONY : CMakeFiles/Image-Editor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Image-Editor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles" 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Image-Editor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/CMakeFiles" 0
 .PHONY : CMakeFiles/Image-Editor.dir/rule

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/Classes/ImageTransformer.cpp" "CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.o" "gcc" "CMakeFiles/Image-Editor.dir/Classes/ImageTransformer.cpp.o.d"
   "/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/main.cpp" "CMakeFiles/Image-Editor.dir/main.cpp.o" "gcc" "CMakeFiles/Image-Editor.dir/main.cpp.o.d"
   )
 
