@@ -31,6 +31,39 @@ Mat ImageTransformer::canny(Mat& img, double lowThreshold, double highThreshold,
     cv::Canny(img, out, lowThreshold, highThreshold, kernelSize);
 
     return out;
+}
+
+Mat ImageTransformer::applyFilter(Mat& img, int filter)
+{
+    // Read source image
+    cv::Mat grayImg;
+    cv::cvtColor(img, grayImg, cv::COLOR_BGR2GRAY);
+    cv::Mat out = grayImg;
+
+    if (filter == 1) {
+        // Apply Gaussian kernel (5x5)
+        cv::GaussianBlur(grayImg, out, cv::Size(5, 5), 0);
+    }
+
+    if (filter == 2){
+        // Apply Sobel filter
+        cv::Mat gradX, gradY;
+        cv::Mat absGradX, absGradY;
+
+        // Apply Sobel operator in the X direction
+        cv::Sobel(grayImg, gradX, CV_16S, 1, 0);
+        cv::convertScaleAbs(gradX, absGradX);
+
+        // Apply Sobel operator in the Y direction
+        cv::Sobel(grayImg, gradY, CV_16S, 0, 1);
+        cv::convertScaleAbs(gradY, absGradY);
+
+        // Combine the gradient images using bitwise OR
+        cv::addWeighted(absGradX, 0.5, absGradY, 0.5, 0, out);
+
+    }
+
+    return out;
 
 }
 

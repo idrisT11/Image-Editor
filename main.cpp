@@ -6,14 +6,12 @@ int main(int argc, char const *argv[])
 {
     Mat img = cv::imread(R"(/Users/romy/Desktop/ISEP/ISEP - A2/Développement des applications multimédia/Projet/Image-Editor/HappyFish.jpg)");
 
-    Mat out = ImageTransformer::canny(img);
+    Mat out = ImageTransformer::applyFilter(img,ImageTransformer::SOBEL);
     cv::namedWindow("Source", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Resize", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Canny", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Result", cv::WINDOW_AUTOSIZE);
 
     cv::imshow("Source", img);
-    //cv::imshow("Resize", out);
-    cv::imshow("Canny", out);
+    cv::imshow("Result", out);
     cv::waitKey(0);
     cv::destroyAllWindows();
 
