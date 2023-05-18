@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         figureframe.h figureframe.cpp #figureframe.ui
 
         ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
+        ${CLASSES_DIR}/ImageTransformer/ImageTransformer.h ${CLASSES_DIR}/ImageTransformer/ImageTransformer.cpp
+
         res.qrc
         ${TS_FILES}
 )
