@@ -24,9 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowIcon(QIcon(":/images/vgath-logo.png"));
 
-    LayerWidget *layerWidget = new LayerWidget(this);
-
-    //HeaderBar *headerBar = new HeaderBar(this);
+    /*LayerWidget *layerWidget = new LayerWidget(this);
 
     FigureContainer *figureContainer = new FigureContainer();
 
@@ -38,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     placeholderWidget->setLayout(hbox);
     setCentralWidget(placeholderWidget);
 
-    //cv::Mat mat = cv::imread("./shinzo.jpg");
+    //cv::Mat mat = cv::imread("./shinzo.jpg");*/
 
 /*
     // Set the color table (used to translate colour indexes to qRgb values)

@@ -40,6 +40,9 @@ void FigureContent::mouseMoveEvent(QMouseEvent *event)
 
 void FigureContent::mousePressEvent(QMouseEvent *event)
 {
+    //this->x = event->x();
+    //this->y = event->y();
+
     if (event->button() == Qt::LeftButton)
         //&& this->geometry().contains(event->pos()))
     {

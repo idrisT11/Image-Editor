@@ -17,7 +17,7 @@ FigureContainer::FigureContainer(QWidget *parent) :
     ui->setupUi(this);
     image = new cv::Mat();
     ui->myLabel->setup();
-    ui->myLabel->move(0, 0);
+    ui->myLabel->move(ui->myLabel->width()/2, ui->myLabel->height()/2);
 
     ui->figureFrame->setup();
 
@@ -41,20 +41,22 @@ void FigureContainer::Mouse_current_pos()
 
     if (this->isDragging)
     {
-        ui->myLabel->move(ui->figureFrame->x - this->clickPosX,
-            ui->figureFrame->y - this->clickPosY);
+        ui->myLabel->move(
+            ui->figureFrame->x - this->clickPosX,
+            ui->figureFrame->y - this->clickPosY
+          );
     }
 }
 
 void FigureContainer::Mouse_left_click()
 {
     this->isDragging = true;
+    this->clickPosX = ui->myLabel->x;//this value is relative to the figurecontent
+    this->clickPosY = ui->myLabel->y;
 }
 
 void FigureContainer::Mouse_left_up()
 {
     this->isDragging = false;
-    this->clickPosX = - ui->myLabel->x + ui->figureFrame->x; //this value is relative to the figurecontent
-    this->clickPosY = - ui->myLabel->y + ui->figureFrame->y;
 }
 

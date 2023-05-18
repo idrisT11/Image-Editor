@@ -25,6 +25,7 @@ set(PROJECT_SOURCES
         mainwindow.h
         mainwindow.ui
         layerwidget.h layerwidget.cpp layerwidget.ui
+        toolswidget.h toolswidget.cpp toolswidget.ui
 
         figurecontainer.h figurecontainer.cpp figurecontainer.ui
         figurecontent.h figurecontent.cpp #figurecontent.ui

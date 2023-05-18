@@ -17,7 +17,10 @@ public:
     ~FigureFrame();
     void setup();
     void mouseMoveEvent(QMouseEvent *event);
+    //void wheelEvent(QWheelEvent *event);
+
     int x, y;
+    int zoom;
 
 signals:
     void Mouse_Pos_FigureFrame();

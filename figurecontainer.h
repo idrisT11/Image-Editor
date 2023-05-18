@@ -31,6 +31,7 @@ private:
     cv::Mat* image;
 
     int clickPosX, clickPosY;
+    float zoom;
     bool isDragging;
 
 };
