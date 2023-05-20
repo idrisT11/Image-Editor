@@ -16,8 +16,13 @@ FigureContent::~FigureContent()
 {
 }
 
-void FigureContent::setup()
+void FigureContent::setupImage(cv::Mat* o_image)
 {
+    if (o_image != nullptr)
+    {
+        image = o_image;
+    }
+
     const uchar *qImageBuffer = (const uchar*)image->data;
     // Create QImage with same dimensions as input Mat
     QImage img(qImageBuffer, image->cols, image->rows, image->step, QImage::Format_RGB888);
@@ -26,6 +31,9 @@ void FigureContent::setup()
     this->setPixmap(QPixmap::fromImage(img));
     this->setScaledContents(false);
     this->setFixedSize(img.width(),img.height());
+
+    //ui->myLabel->move(ui->myLabel->width()/2, ui->myLabel->height()/2);
+
 }
 
 void FigureContent::mouseMoveEvent(QMouseEvent *event)

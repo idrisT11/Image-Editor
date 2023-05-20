@@ -24,7 +24,7 @@ private:
     QLabel *lbl;
 
 public slots:
-    void ChangeText();
+
 };
 
 #endif // MAINWINDOW_H

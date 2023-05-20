@@ -18,7 +18,7 @@ class FigureContent : public QLabel
 public:
     explicit FigureContent(QWidget *parent = nullptr);
     ~FigureContent();
-    void setup();
+    void setupImage(cv::Mat* o_image = nullptr);
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);

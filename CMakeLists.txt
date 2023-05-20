@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         figurecontent.h figurecontent.cpp #figurecontent.ui
         figureframe.h figureframe.cpp #figureframe.ui
 
+        Popups/ResizePopup/resizepopup.h Popups/ResizePopup/resizepopup.cpp Popups/ResizePopup/resizepopup.ui
+
         ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
         ${CLASSES_DIR}/ImageTransformer/ImageTransformer.h ${CLASSES_DIR}/ImageTransformer/ImageTransformer.cpp
 

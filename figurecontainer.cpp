@@ -4,6 +4,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#include "Classes/ImageTransformer/ImageTransformer.h"
 #include "figurecontainer.h"
 #include "figurecontent.h"
 #include "figureframe.h"
@@ -16,8 +17,9 @@ FigureContainer::FigureContainer(QWidget *parent) :
 {
     ui->setupUi(this);
     image = new cv::Mat();
-    ui->myLabel->setup();
-    ui->myLabel->move(ui->myLabel->width()/2, ui->myLabel->height()/2);
+    ui->myLabel->setupImage();
+    ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
+                      (ui->figureFrame->height() - ui->myLabel->height())/2);
 
     ui->figureFrame->setup();
 
@@ -26,6 +28,7 @@ FigureContainer::FigureContainer(QWidget *parent) :
 
     connect(ui->myLabel, SIGNAL(Mouse_Pressed()), this, SLOT(Mouse_left_click()));
     connect(ui->myLabel, SIGNAL(Mouse_Released()), this, SLOT(Mouse_left_up()));
+
 
     isDragging = false;
 }
@@ -58,5 +61,19 @@ void FigureContainer::Mouse_left_click()
 void FigureContainer::Mouse_left_up()
 {
     this->isDragging = false;
+}
+
+void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
+{
+    //ui->pushButton->setText("Weshhhh");
+    ui->pushButton->setText(QString("X = %1 & Y = %2").arg(scaleX).arg(scaleY));
+
+    Mat* out = new cv::Mat();
+    *out = cv::imread("./shinzo.jpg");
+    *out = ImageTransformer::resize(*out, scaleX, scaleY);
+
+    ui->myLabel->setupImage(out);
+    ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
+                      (ui->figureFrame->height() - ui->myLabel->height())/2);
 }
 

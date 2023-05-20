@@ -18,13 +18,12 @@ class FigureContainer : public QWidget
 public:
     explicit FigureContainer(QWidget *parent = nullptr);
     ~FigureContainer();
-    //void mouseMoveEvent(QMouseEvent *event);
-    //void leaveEvent(QEvent *event);
 
 private slots:
     void Mouse_current_pos();
     void Mouse_left_click();
     void Mouse_left_up();
+    void ResizeConfirmed(double scaleX, double scaleY);
 
 private:
     Ui::FigureContainer *ui;
