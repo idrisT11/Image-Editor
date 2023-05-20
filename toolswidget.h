@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "Popups/ResizePopup/resizepopup.h"
+#include "Popups/LightenPopup/lightenpopup.h"
 
 namespace Ui {
 class ToolsWidget;
@@ -15,10 +16,12 @@ class ToolsWidget : public QWidget
 public:
     explicit ToolsWidget(QWidget *parent = nullptr);
     ~ToolsWidget();
-    QWidget *popup;
+    QWidget *resizePopup;
+    QWidget *lightenPopup;
 
 private slots:
-    void on_pushButton_clicked();
+    void on_resizeButton_clicked();
+    void on_lightenButton_clicked();
 
 private:
     Ui::ToolsWidget *ui;

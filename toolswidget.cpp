@@ -7,10 +7,8 @@ ToolsWidget::ToolsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    popup = new ResizePopup;
-
-    //QWidget *w = new QWidget;
-    //w->show();
+    resizePopup = new ResizePopup;
+    lightenPopup = new LightenPopup;
 }
 
 ToolsWidget::~ToolsWidget()
@@ -18,10 +16,18 @@ ToolsWidget::~ToolsWidget()
     delete ui;
 }
 
-void ToolsWidget::on_pushButton_clicked()
+void ToolsWidget::on_resizeButton_clicked()
 {
-    popup->show();
-    popup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    popup->resize(368,118);
+    resizePopup->show();
+    resizePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    resizePopup->resize(368,118);
+}
+
+
+void ToolsWidget::on_lightenButton_clicked()
+{
+    lightenPopup->show();
+    lightenPopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    lightenPopup->resize(368,118);
 }
 

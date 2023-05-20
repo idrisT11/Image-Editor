@@ -77,3 +77,18 @@ void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
                       (ui->figureFrame->height() - ui->myLabel->height())/2);
 }
 
+
+void FigureContainer::LightenConfirmed(double lightenIntensity)
+{
+    //ui->pushButton->setText("Weshhhh");
+    ui->pushButton->setText(QString("L = %1").arg(lightenIntensity));
+
+    Mat* out = new cv::Mat();
+    *out = cv::imread("./shinzo.jpg");
+    *out = ImageTransformer::LightenDarken(*out, lightenIntensity);
+
+    ui->myLabel->setupImage(out);
+    //ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
+    //                  (ui->figureFrame->height() - ui->myLabel->height())/2);
+}
+

@@ -24,6 +24,7 @@ private slots:
     void Mouse_left_click();
     void Mouse_left_up();
     void ResizeConfirmed(double scaleX, double scaleY);
+    void LightenConfirmed(double lightenIntensity);
 
 private:
     Ui::FigureContainer *ui;
