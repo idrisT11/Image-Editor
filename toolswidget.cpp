@@ -28,6 +28,6 @@ void ToolsWidget::on_lightenButton_clicked()
 {
     lightenPopup->show();
     lightenPopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    lightenPopup->resize(368,118);
+    lightenPopup->resize(400,267-100);
 }
 
