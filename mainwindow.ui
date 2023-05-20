@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>968</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>968</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(51, 51, 51);
+</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,1">
+       <item>
+        <widget class="FigureContainer" name="MainFrame" native="true"/>
+       </item>
+       <item>
+        <widget class="QWidget" name="RightInterface" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="ToolsWidget" name="widget_4" native="true"/>
+          </item>
+          <item>
+           <widget class="LayerWidget" name="widget_3" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>968</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;
+background-color: rgb(100,100, 100);</string>
+   </property>
+   <widget class="QMenu" name="menuFiles">
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Files</string>
+    </property>
+    <addaction name="actiondd"/>
+    <addaction name="actionOpen_File_2"/>
+    <addaction name="actionSave_File_2"/>
+    <addaction name="actionSave_File_As_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose_2"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menuFiles"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionNew_File">
+   <property name="text">
+    <string>New File</string>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionSave_File">
+   <property name="text">
+    <string>Save File</string>
+   </property>
+  </action>
+  <action name="actionSave_File_As">
+   <property name="text">
+    <string>Save File As ...</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actiondd">
+   <property name="text">
+    <string>New File</string>
+   </property>
+  </action>
+  <action name="actionzz">
+   <property name="text">
+    <string>zz</string>
+   </property>
+  </action>
+  <action name="actionOpen_File_2">
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
+  <action name="actionSave_File_2">
+   <property name="text">
+    <string>Save File</string>
+   </property>
+  </action>
+  <action name="actionSave_File_As_2">
+   <property name="text">
+    <string>Save File As...</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FigureContainer</class>
+   <extends>QWidget</extends>
+   <header location="global">figurecontainer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LayerWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">layerwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ToolsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">toolswidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
