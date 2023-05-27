@@ -37,10 +37,14 @@ Mat ImageTransformer::resize(Mat& img, double scaleX, double scaleY)
 Mat ImageTransformer::canny(Mat& img, double lowThreshold, double highThreshold, int kernelSize)
 {
     // Read source image
-    Mat out = img;
+    Mat out = Mat::zeros(img.rows, img.cols, img.type());// = Scalar::all(0);
+    Mat whiteBackground(img.rows, img.cols, img.type(), cv::Scalar(255, 255, 255));
+    Mat mask;
 
     // Perform Canny edge detection
-    cv::Canny(img, out, lowThreshold, highThreshold, kernelSize);
+    cv::Canny(img, mask, lowThreshold, highThreshold, kernelSize);
+
+    whiteBackground.copyTo( out, mask);
 
     return out;
 }
