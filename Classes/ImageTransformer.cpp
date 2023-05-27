@@ -34,6 +34,77 @@ Mat ImageTransformer::resize(Mat& img, double scaleX, double scaleY)
     return out;
 }
 
+//===========================================================================
+//Mathematical morphology -------------------------------------------------------------------
+//===========================================================================
+
+Mat ImageTransformer::erosion(Mat& img, int kernel_type)
+{
+    Mat out;
+
+    int erosion_type = 0;           // Type d'érosion (Rectangle, Croix, Ellipse) stocke le MorphShape correspondant à erosion_elem
+
+    switch(kernel_type){
+        case ImageTransformer::MATHMORPH_RECT:                     // Noyau rectangulaire
+            erosion_type = MORPH_RECT;
+            break;
+        case ImageTransformer::MATHMORPH_CROSS:                     // Noyau en croix
+            erosion_type = MORPH_CROSS;
+            break;
+        case ImageTransformer::MATHMORPH_ELLIPSE:                     // Noyau en ellipse
+            erosion_type = MORPH_ELLIPSE;
+            break;
+        default:                    // Sinon : erreur
+            //std::cout<<"kernel_type ne correspond pas à une valeur autorisée. Remise à la valeur par défaut : ellipse"<<std::endl;
+            erosion_type = MORPH_ELLIPSE;
+
+    }
+
+    // Create kernel
+    Mat kernel = getStructuringElement( erosion_type,
+                                        Size(2*kernel_size + 1, 2*kernel_size+1),
+                                        Point(kernel_size, kernel_size) );
+
+    cv::erode( img, out, kernel);
+
+    return out;
+}
+
+Mat ImageTransformer::dilatation(Mat& img, int kernel_type)
+{
+    Mat out;
+    
+    int dilatation_type = 0;           // Type de dilatation (Rectangle, Croix, Ellipse) stocke le MorphShape correspondant à erosion_elem
+
+    switch(kernel_type){
+        case ImageTransformer::MATHMORPH_RECT:                     // Noyau rectangulaire
+            dilatation_type = MORPH_RECT;
+            break;
+        case ImageTransformer::MATHMORPH_CROSS:                     // Noyau en croix
+            dilatation_type = MORPH_CROSS;
+            break;
+        case ImageTransformer::MATHMORPH_ELLIPSE:                     // Noyau en ellipse
+            dilatation_type = MORPH_ELLIPSE;
+            break;
+        default:                    // Sinon : erreur
+            //std::cout<<"kernel_type ne correspond pas à une valeur autorisée. Remise à la valeur par défaut : ellipse"<<std::endl;
+            dilatation_type = MORPH_ELLIPSE;
+
+    }
+
+    // Create kernel
+    Mat kernel = getStructuringElement( dilatation_type,
+                                        Size(2*kernel_size + 1, 2*kernel_size+1),
+                                        Point(kernel_size, kernel_size) );
+    dilate( img, out, kernel);
+
+    return out;
+}
+
+//===========================================================================
+//Filters -------------------------------------------------------------------
+//===========================================================================
+
 Mat ImageTransformer::canny(Mat& img, double lowThreshold, double highThreshold, int kernelSize)
 {
     // Read source image
