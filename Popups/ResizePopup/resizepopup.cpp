@@ -15,6 +15,14 @@ ResizePopup::~ResizePopup()
     delete ui;
 }
 
+void ResizePopup::init()
+{
+    ui->ScaleXInput->setValue(1);
+    ui->ScaleYInput->setValue(1);
+    scaleX = 1;
+    scaleY = 1;
+}
+
 void ResizePopup::on_CancelButton_clicked()
 {
     this->close();

@@ -88,7 +88,16 @@ void FigureContainer::LightenConfirmed(double lightenIntensity)
     *out = ImageTransformer::LightenDarken(*out, lightenIntensity);
 
     ui->myLabel->setupImage(out);
-    //ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
-    //                  (ui->figureFrame->height() - ui->myLabel->height())/2);
 }
 
+void FigureContainer::CannyConfirmed(double low, double high, int kernel)
+{
+    ui->pushButton->setText(QString("zeybb L = %1").arg(low));
+
+    Mat* out = new cv::Mat();
+    *out = cv::imread("./shinzo.jpg");
+    *out = ImageTransformer::canny(*out, low, high, kernel);
+    std::cout << out->rows << " " << out->cols << "wesh" << std::endl;
+
+    ui->myLabel->setupImage(out);
+}

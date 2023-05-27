@@ -7,12 +7,19 @@ LightenPopup::LightenPopup(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    this->lightIntensity = 0;
+    this->lightIntensity = 0.5;
 }
 
 LightenPopup::~LightenPopup()
 {
     delete ui;
+}
+
+void LightenPopup::init()
+{
+    ui->lightenSlider->setValue(50);
+    ui->LightenInput->setValue(0);
+    this->lightIntensity = 0.5;
 }
 
 void LightenPopup::on_CancelButton_clicked()
@@ -40,6 +47,8 @@ void LightenPopup::on_lightenSlider_valueChanged(int value)
 
     this->lightIntensity = dvalue;
     ui->LightenInput->setValue(value*2-100);
+
+    //emit Apply_LightIntensity(this->lightIntensity * 255 * 2 - 255);
 }
 
 

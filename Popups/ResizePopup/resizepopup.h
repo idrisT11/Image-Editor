@@ -14,8 +14,7 @@ class ResizePopup : public QWidget
 public:
     explicit ResizePopup(QWidget *parent = nullptr);
     ~ResizePopup();
-    void cancelClick(QEvent *event);
-    void confirmClick(QEvent *event);
+    void init();
 
 private slots:
     void on_CancelButton_clicked();
