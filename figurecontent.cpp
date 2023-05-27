@@ -4,7 +4,6 @@ FigureContent::FigureContent(QWidget *parent) :
     QLabel(parent)
 {
     image = new cv::Mat();
-    *image = cv::imread("./shinzo.jpg");
 
     //this->setPixmap(QPixmap::fromImage(img));
     //this->setPixmap(QPixmap(":/images/shinzo.jpg"));

@@ -24,12 +24,9 @@ private slots:
     void on_HighThresholdInput_valueChanged(double arg1);
 
     void on_Kernel5Radio_clicked();
-
     void on_Kernel3Radio_clicked();
-
     void on_Kernel7Radio_clicked();
 
-    void on_Kernel11Radio_clicked();
 
 private:
     Ui::cannyPopup *ui;

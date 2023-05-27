@@ -16,8 +16,12 @@ FigureContainer::FigureContainer(QWidget *parent) :
     ui(new Ui::FigureContainer)
 {
     ui->setupUi(this);
+
+    //Temporary: init image
     image = new cv::Mat();
-    ui->myLabel->setupImage();
+    *image = cv::imread("./shinzo.jpg");
+    ui->myLabel->setupImage(image);
+
     ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
                       (ui->figureFrame->height() - ui->myLabel->height())/2);
 
@@ -63,16 +67,20 @@ void FigureContainer::Mouse_left_up()
     this->isDragging = false;
 }
 
+//=======================================================================
+// Popups interface ----------------------------------------------------
+//=======================================================================
+
 void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
 {
     //ui->pushButton->setText("Weshhhh");
     ui->pushButton->setText(QString("X = %1 & Y = %2").arg(scaleX).arg(scaleY));
 
-    Mat* out = new cv::Mat();
-    *out = cv::imread("./shinzo.jpg");
-    *out = ImageTransformer::resize(*out, scaleX, scaleY);
-
-    ui->myLabel->setupImage(out);
+    //Mat* out = new cv::Mat();
+    //Mat* out = cv::imread("./shinzo.jpg");
+    *image = ImageTransformer::resize(*image, scaleX, scaleY);
+    std::cout << image->cols << "  " << image->rows;
+    ui->myLabel->setupImage(image);
     ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
                       (ui->figureFrame->height() - ui->myLabel->height())/2);
 }
@@ -83,21 +91,21 @@ void FigureContainer::LightenConfirmed(double lightenIntensity)
     //ui->pushButton->setText("Weshhhh");
     ui->pushButton->setText(QString("L = %1").arg(lightenIntensity));
 
-    Mat* out = new cv::Mat();
-    *out = cv::imread("./shinzo.jpg");
-    *out = ImageTransformer::LightenDarken(*out, lightenIntensity);
+    //Mat* out = new cv::Mat();
+    //Mat* out = cv::imread("./shinzo.jpg");
+    *image = ImageTransformer::LightenDarken(*image, lightenIntensity);
 
-    ui->myLabel->setupImage(out);
+    ui->myLabel->setupImage(image);
 }
 
 void FigureContainer::CannyConfirmed(double low, double high, int kernel)
 {
     ui->pushButton->setText(QString("zeybb L = %1").arg(low));
 
-    Mat* out = new cv::Mat();
-    *out = cv::imread("./shinzo.jpg");
-    *out = ImageTransformer::canny(*out, low, high, kernel);
-    std::cout << out->rows << " " << out->cols << "wesh" << std::endl;
 
-    ui->myLabel->setupImage(out);
+    *image = ImageTransformer::canny(*image, low, high, kernel);
+
+    //std::cout << out->rows << " " << out->cols << "wesh" << std::endl;
+
+    ui->myLabel->setupImage(image);
 }

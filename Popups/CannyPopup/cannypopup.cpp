@@ -55,17 +55,8 @@ void CannyPopup::on_Kernel5Radio_clicked()
     this->kernelSize = 5;
 }
 
-
-
-
 void CannyPopup::on_Kernel7Radio_clicked()
 {
     this->kernelSize = 7;
-}
-
-
-void CannyPopup::on_Kernel11Radio_clicked()
-{
-    this->kernelSize = 11;
 }
 
