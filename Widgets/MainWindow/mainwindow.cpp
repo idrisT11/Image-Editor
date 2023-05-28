@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("Gimsep");
     showMaximized();
 
-    setWindowIcon(QIcon(":/images/vgath-logo.png"));
+    setWindowIcon(QIcon(":/images/ressources/vgath-logo.png"));
 
     // Event: When user click on apply resize
     connect(ui->widget_4->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->MainFrame, SLOT(ResizeConfirmed(double,double)));

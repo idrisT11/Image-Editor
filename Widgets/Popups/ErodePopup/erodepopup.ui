@@ -14,8 +14,8 @@
    <string>Erode</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../res.qrc">
-    <normaloff>:/images/vgath-logo.png</normaloff>:/images/vgath-logo.png</iconset>
+   <iconset resource="../../../res.qrc">
+    <normaloff>:/images/ressources/vgath-logo.png</normaloff>:/images/ressources/vgath-logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(57,57, 57);
@@ -210,7 +210,7 @@ padding: 5px 25px;
   </layout>
  </widget>
  <resources>
-  <include location="../../res.qrc"/>
+  <include location="../../../res.qrc"/>
  </resources>
  <connections/>
 </ui>

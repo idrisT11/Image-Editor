@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Canny Filter</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../../res.qrc">
+    <normaloff>:/images/ressources/vgath-logo.png</normaloff>:/images/ressources/vgath-logo.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(57,57, 57);
 </string>
@@ -240,6 +244,8 @@ padding: 5px 25px;
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../../res.qrc"/>
+ </resources>
  <connections/>
 </ui>

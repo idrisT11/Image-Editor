@@ -51,7 +51,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="res.qrc">:/images/layers_icon.png</pixmap>
+    <pixmap resource="../../res.qrc">:/images/ressources/layers_icon.png</pixmap>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">
@@ -83,7 +83,7 @@ border-radius: 4px;</string>
   </widget>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="../../res.qrc"/>
  </resources>
  <connections/>
 </ui>
