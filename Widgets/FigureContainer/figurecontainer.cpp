@@ -5,9 +5,9 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include "Classes/ImageTransformer/ImageTransformer.h"
-#include "figurecontainer.h"
-#include "figurecontent.h"
-#include "figureframe.h"
+#include "Widgets/FigureContainer/figurecontainer.h"
+#include "Widgets/FigureContent/figurecontent.h"
+#include "Widgets/FigureFrame/figureframe.h"
 
 #include "ui_figurecontainer.h"
 

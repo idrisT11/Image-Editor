@@ -2,10 +2,10 @@
 #define TOOLSWIDGET_H
 
 #include <QWidget>
-#include "Popups/ResizePopup/resizepopup.h"
-#include "Popups/LightenPopup/lightenpopup.h"
-#include "Popups/CannyPopup/cannypopup.h"
-#include "Popups/ErodePopup/erodepopup.h"
+#include "Widgets/Popups/ResizePopup/resizepopup.h"
+#include "Widgets/Popups/LightenPopup/lightenpopup.h"
+#include "Widgets/Popups/CannyPopup/cannypopup.h"
+#include "Widgets/Popups/ErodePopup/erodepopup.h"
 
 namespace Ui {
 class ToolsWidget;

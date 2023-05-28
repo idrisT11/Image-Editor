@@ -9,8 +9,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include "layerwidget.h"
-#include "figurecontainer.h"
+#include "Widgets/LayerWidget/layerwidget.h"
+#include "Widgets/FigureContainer/figurecontainer.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
