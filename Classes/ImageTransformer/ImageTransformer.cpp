@@ -117,12 +117,14 @@ Mat ImageTransformer::applyFilter(Mat& img, int filter)
     cv::cvtColor(img, grayImg, cv::COLOR_BGR2GRAY);
     cv::Mat out = grayImg;
 
-    if (filter == 1) {
+    if (filter == GAUSS)
+    {
         // Apply Gaussian kernel (5x5)
-        cv::GaussianBlur(grayImg, out, cv::Size(5, 5), 0);
+        cv::GaussianBlur(img, out, cv::Size(5, 5), 0);
     }
 
-    if (filter == 2){
+    else if (filter == SOBEL)
+    {
         // Apply Sobel filter
         cv::Mat gradX, gradY;
         cv::Mat absGradX, absGradY;
@@ -138,10 +140,10 @@ Mat ImageTransformer::applyFilter(Mat& img, int filter)
         // Combine the gradient images using bitwise OR
         cv::addWeighted(absGradX, 0.5, absGradY, 0.5, 0, out);
 
+        cv::cvtColor(out, out, cv::COLOR_GRAY2BGR);
     }
 
     return out;
-
 }
 
 Mat ImageTransformer::LightenDarken (Mat& image, double lightIntensity){

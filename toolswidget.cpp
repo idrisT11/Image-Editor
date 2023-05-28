@@ -60,6 +60,13 @@ void ToolsWidget::on_dilateButton_clicked()
     erodePopup->init(ErodePopup::DILATE_MODE);
 }
 
+void ToolsWidget::on_blurButton_clicked()
+{
+    emit Apply_Filter(ImageTransformer::GAUSS);
+}
 
-
+void ToolsWidget::on_sobelButton_clicked()
+{
+    emit Apply_Filter(ImageTransformer::SOBEL);
+}
 

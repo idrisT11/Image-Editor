@@ -30,6 +30,7 @@ private slots:
     void CannyConfirmed(double low, double high, int kernel);
     void ErodeConfirmed(int kernelType, int kernelSize);
     void DilateConfirmed(int kernelType, int kernelSize);
+    void FilterConfirmed(int filterType);
 
 private:
     Ui::FigureContainer *ui;
@@ -37,8 +38,8 @@ private:
     cv::Mat* displayedImage;
 
     int clickPosX, clickPosY;
-    float zoom;
     bool isDragging;
+    float zoom;
 
 };
 

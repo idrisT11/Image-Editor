@@ -110,3 +110,11 @@ void FigureContainer::DilateConfirmed(int kernelType, int kernelSize)
 
     ui->myLabel->setupImage(image);
 }
+
+void FigureContainer::FilterConfirmed(int filterType)
+{
+    *image = ImageTransformer::applyFilter(*image, filterType);
+    std::cout << image->cols << "  " << image->rows << std::endl;
+
+    ui->myLabel->setupImage(image);
+}
