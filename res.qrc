@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/images">
-        <file>shinzo.jpg</file>
-        <file>vgath-logo.png</file>
-        <file>layers_icon.png</file>
-        <file>tools_icon.png</file>
+        <file>ressources/layers_icon.png</file>
+        <file>ressources/layers_icon.svg</file>
+        <file>ressources/shinzo.jpg</file>
+        <file>ressources/tools_icon.png</file>
+        <file>ressources/vgath-logo.png</file>
     </qresource>
 </RCC>

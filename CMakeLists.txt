@@ -18,23 +18,27 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES Image-Editor_en_ZA.ts)
 set(CLASSES_DIR ./Classes)
+set(WIDGETS_DIR ./Widgets)
+set(POPUPS_DIR ./Widgets/Popups)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        layerwidget.h layerwidget.cpp layerwidget.ui
-        toolswidget.h toolswidget.cpp toolswidget.ui
 
-        figurecontainer.h figurecontainer.cpp figurecontainer.ui
-        figurecontent.h figurecontent.cpp #figurecontent.ui
-        figureframe.h figureframe.cpp #figureframe.ui
+        ${WIDGETS_DIR}/MainWindow/mainwindow.cpp
+        ${WIDGETS_DIR}/MainWindow/mainwindow.h
+        ${WIDGETS_DIR}/MainWindow/mainwindow.ui
 
-        Popups/ResizePopup/resizepopup.h Popups/ResizePopup/resizepopup.cpp Popups/ResizePopup/resizepopup.ui
-        Popups/LightenPopup/lightenpopup.h Popups/LightenPopup/lightenpopup.cpp Popups/LightenPopup/lightenpopup.ui
-        Popups/CannyPopup/cannypopup.h Popups/CannyPopup/cannypopup.cpp Popups/CannyPopup/cannypopup.ui
-        Popups/ErodePopup/erodepopup.h Popups/ErodePopup/erodepopup.cpp Popups/ErodePopup/erodepopup.ui
+        ${WIDGETS_DIR}/LayerWidget/layerwidget.h         ${WIDGETS_DIR}/LayerWidget/layerwidget.cpp ${WIDGETS_DIR}/LayerWidget/layerwidget.ui
+        ${WIDGETS_DIR}/ToolWidget/toolswidget.h          ${WIDGETS_DIR}/ToolWidget/toolswidget.cpp  ${WIDGETS_DIR}/ToolWidget/toolswidget.ui
+
+        ${WIDGETS_DIR}/FigureContainer/figurecontainer.h ${WIDGETS_DIR}/FigureContainer/figurecontainer.cpp ${WIDGETS_DIR}/FigureContainer/figurecontainer.ui
+        ${WIDGETS_DIR}/FigureContent/figurecontent.h     ${WIDGETS_DIR}/FigureContent/figurecontent.cpp #figurecontent.ui
+        ${WIDGETS_DIR}/FigureFrame/figureframe.h         ${WIDGETS_DIR}/FigureFrame/figureframe.cpp #figureframe.ui
+
+        ${POPUPS_DIR}/ResizePopup/resizepopup.h     ${POPUPS_DIR}/ResizePopup/resizepopup.cpp   ${POPUPS_DIR}/ResizePopup/resizepopup.ui
+        ${POPUPS_DIR}/LightenPopup/lightenpopup.h   ${POPUPS_DIR}/LightenPopup/lightenpopup.cpp ${POPUPS_DIR}/LightenPopup/lightenpopup.ui
+        ${POPUPS_DIR}/CannyPopup/cannypopup.h       ${POPUPS_DIR}/CannyPopup/cannypopup.cpp     ${POPUPS_DIR}/CannyPopup/cannypopup.ui
+        ${POPUPS_DIR}/ErodePopup/erodepopup.h       ${POPUPS_DIR}/ErodePopup/erodepopup.cpp     ${POPUPS_DIR}/ErodePopup/erodepopup.ui
 
         ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
         ${CLASSES_DIR}/ImageTransformer/ImageTransformer.h ${CLASSES_DIR}/ImageTransformer/ImageTransformer.cpp
