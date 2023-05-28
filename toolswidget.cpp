@@ -7,10 +7,10 @@ ToolsWidget::ToolsWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    popup = new ResizePopup;
-
-    //QWidget *w = new QWidget;
-    //w->show();
+    resizePopup = new ResizePopup;
+    lightenPopup = new LightenPopup;
+    cannyPopup = new CannyPopup;
+    erodePopup = new ErodePopup;
 }
 
 ToolsWidget::~ToolsWidget()
@@ -18,10 +18,55 @@ ToolsWidget::~ToolsWidget()
     delete ui;
 }
 
-void ToolsWidget::on_pushButton_clicked()
+void ToolsWidget::on_resizeButton_clicked()
 {
-    popup->show();
-    popup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    popup->resize(368,118);
+    resizePopup->show();
+    resizePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    resizePopup->resize(368,118);
+    resizePopup->init();
+}
+
+
+void ToolsWidget::on_lightenButton_clicked()
+{
+    lightenPopup->show();
+    lightenPopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    lightenPopup->resize(400,267-100);
+    lightenPopup->init();
+}
+
+
+void ToolsWidget::on_pushButton_3_clicked()
+{
+    cannyPopup->show();
+    cannyPopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    cannyPopup->resize(400,267-100);
+    cannyPopup->init();
+}
+
+void ToolsWidget::on_erodeButton_clicked()
+{
+    erodePopup->show();
+    erodePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    erodePopup->resize(400,267-100);
+    erodePopup->init(ErodePopup::ERODE_MODE);
+}
+
+void ToolsWidget::on_dilateButton_clicked()
+{
+    erodePopup->show();
+    erodePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    erodePopup->resize(400,267-100);
+    erodePopup->init(ErodePopup::DILATE_MODE);
+}
+
+void ToolsWidget::on_blurButton_clicked()
+{
+    emit Apply_Filter(ImageTransformer::GAUSS);
+}
+
+void ToolsWidget::on_sobelButton_clicked()
+{
+    emit Apply_Filter(ImageTransformer::SOBEL);
 }
 

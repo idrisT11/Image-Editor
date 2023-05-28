@@ -32,6 +32,9 @@ set(PROJECT_SOURCES
         figureframe.h figureframe.cpp #figureframe.ui
 
         Popups/ResizePopup/resizepopup.h Popups/ResizePopup/resizepopup.cpp Popups/ResizePopup/resizepopup.ui
+        Popups/LightenPopup/lightenpopup.h Popups/LightenPopup/lightenpopup.cpp Popups/LightenPopup/lightenpopup.ui
+        Popups/CannyPopup/cannypopup.h Popups/CannyPopup/cannypopup.cpp Popups/CannyPopup/cannypopup.ui
+        Popups/ErodePopup/erodepopup.h Popups/ErodePopup/erodepopup.cpp Popups/ErodePopup/erodepopup.ui
 
         ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
         ${CLASSES_DIR}/ImageTransformer/ImageTransformer.h ${CLASSES_DIR}/ImageTransformer/ImageTransformer.cpp

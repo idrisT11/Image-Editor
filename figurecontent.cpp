@@ -4,7 +4,6 @@ FigureContent::FigureContent(QWidget *parent) :
     QLabel(parent)
 {
     image = new cv::Mat();
-    *image = cv::imread("./shinzo.jpg");
 
     //this->setPixmap(QPixmap::fromImage(img));
     //this->setPixmap(QPixmap(":/images/shinzo.jpg"));
@@ -33,7 +32,6 @@ void FigureContent::setupImage(cv::Mat* o_image)
     this->setFixedSize(img.width(),img.height());
 
     //ui->myLabel->move(ui->myLabel->width()/2, ui->myLabel->height()/2);
-
 }
 
 void FigureContent::mouseMoveEvent(QMouseEvent *event)

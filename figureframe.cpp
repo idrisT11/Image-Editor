@@ -20,6 +20,6 @@ void FigureFrame::mouseMoveEvent(QMouseEvent *event)
 {
     this->x = event->x();
     this->y = event->y();
-    std::cout << this->x << " " << this->y << std::endl;
+
     emit Mouse_Pos_FigureFrame();
 }
