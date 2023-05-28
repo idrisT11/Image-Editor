@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowIcon(QIcon(":/images/ressources/vgath-logo.png"));
 
+
+    connect(ui->actionOpenFile, SIGNAL(triggered()), this, SLOT(OpenFile()));
+
+
     // Event: When user click on apply resize
     connect(ui->widget_4->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->MainFrame, SLOT(ResizeConfirmed(double,double)));
     connect(ui->widget_4->lightenPopup, SIGNAL(Apply_LightIntensity(double)), ui->MainFrame, SLOT(LightenConfirmed(double)));
@@ -37,4 +41,11 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::OpenFile()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "Open a file", "./");
+    //std::cout << fileName;
+
 }

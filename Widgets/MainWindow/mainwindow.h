@@ -3,6 +3,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
 #include<QLabel>
 
 
@@ -24,6 +25,7 @@ private:
     QLabel *lbl;
 
 public slots:
+    void OpenFile();
 
 };
 

@@ -91,10 +91,10 @@ background-color: rgb(100,100, 100);</string>
     <property name="title">
      <string>Files</string>
     </property>
-    <addaction name="actiondd"/>
-    <addaction name="actionOpen_File_2"/>
-    <addaction name="actionSave_File_2"/>
-    <addaction name="actionSave_File_As_2"/>
+    <addaction name="actionNewFile"/>
+    <addaction name="actionOpenFile"/>
+    <addaction name="actionSaveFile"/>
+    <addaction name="actionSaveFileAs"/>
     <addaction name="separator"/>
     <addaction name="actionClose_2"/>
    </widget>
@@ -143,7 +143,7 @@ background-color: rgb(100,100, 100);</string>
     <string>Close</string>
    </property>
   </action>
-  <action name="actiondd">
+  <action name="actionNewFile">
    <property name="text">
     <string>New File</string>
    </property>
@@ -153,17 +153,17 @@ background-color: rgb(100,100, 100);</string>
     <string>zz</string>
    </property>
   </action>
-  <action name="actionOpen_File_2">
+  <action name="actionOpenFile">
    <property name="text">
     <string>Open File</string>
    </property>
   </action>
-  <action name="actionSave_File_2">
+  <action name="actionSaveFile">
    <property name="text">
     <string>Save File</string>
    </property>
   </action>
-  <action name="actionSave_File_As_2">
+  <action name="actionSaveFileAs">
    <property name="text">
     <string>Save File As...</string>
    </property>
@@ -178,19 +178,19 @@ background-color: rgb(100,100, 100);</string>
   <customwidget>
    <class>FigureContainer</class>
    <extends>QWidget</extends>
-   <header location="global">figurecontainer.h</header>
+   <header>Widgets/FigureContainer/figurecontainer.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>LayerWidget</class>
    <extends>QWidget</extends>
-   <header location="global">layerwidget.h</header>
+   <header>Widgets/LayerWidget/layerwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ToolsWidget</class>
    <extends>QWidget</extends>
-   <header location="global">toolswidget.h</header>
+   <header>Widgets/ToolWidget/toolswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
