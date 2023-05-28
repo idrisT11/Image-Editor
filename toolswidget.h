@@ -5,6 +5,7 @@
 #include "Popups/ResizePopup/resizepopup.h"
 #include "Popups/LightenPopup/lightenpopup.h"
 #include "Popups/CannyPopup/cannypopup.h"
+#include "Popups/ErodePopup/erodepopup.h"
 
 namespace Ui {
 class ToolsWidget;
@@ -20,12 +21,17 @@ public:
     ResizePopup *resizePopup;
     LightenPopup *lightenPopup;
     CannyPopup *cannyPopup;
+    ErodePopup * erodePopup;
 
 private slots:
     void on_resizeButton_clicked();
     void on_lightenButton_clicked();
 
     void on_pushButton_3_clicked();
+
+
+    void on_dilateButton_clicked();
+    void on_erodeButton_clicked();
 
 private:
     Ui::ToolsWidget *ui;

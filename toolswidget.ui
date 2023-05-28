@@ -71,7 +71,7 @@ border-radius: 4px;</string>
     <enum>QFrame::Raised</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="0">
+    <item row="6" column="0">
      <widget class="QPushButton" name="lightenButton">
       <property name="styleSheet">
        <string notr="true">border: 1px solid black;
@@ -80,6 +80,58 @@ background-color: white;</string>
       </property>
       <property name="text">
        <string>Lighten</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+      </property>
+      <property name="text">
+       <string>Canny</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+      </property>
+      <property name="text">
+       <string>Blur</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="erodeButton">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+      </property>
+      <property name="text">
+       <string>Erode</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="dilateButton">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+      </property>
+      <property name="text">
+       <string>Dilate</string>
       </property>
      </widget>
     </item>
@@ -95,8 +147,8 @@ background-color: white;</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="pushButton_6">
       <property name="styleSheet">
        <string notr="true">border: 1px solid black;
 padding: 4px;
@@ -104,20 +156,7 @@ background-color: white;
 </string>
       </property>
       <property name="text">
-       <string>Erode</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="styleSheet">
-       <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
-</string>
-      </property>
-      <property name="text">
-       <string>Canny</string>
+       <string>Sobel</string>
       </property>
      </widget>
     </item>

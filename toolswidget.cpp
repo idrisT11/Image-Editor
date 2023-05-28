@@ -10,6 +10,7 @@ ToolsWidget::ToolsWidget(QWidget *parent) :
     resizePopup = new ResizePopup;
     lightenPopup = new LightenPopup;
     cannyPopup = new CannyPopup;
+    erodePopup = new ErodePopup;
 }
 
 ToolsWidget::~ToolsWidget()
@@ -42,4 +43,23 @@ void ToolsWidget::on_pushButton_3_clicked()
     cannyPopup->resize(400,267-100);
     cannyPopup->init();
 }
+
+void ToolsWidget::on_erodeButton_clicked()
+{
+    erodePopup->show();
+    erodePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    erodePopup->resize(400,267-100);
+    erodePopup->init(ErodePopup::ERODE_MODE);
+}
+
+void ToolsWidget::on_dilateButton_clicked()
+{
+    erodePopup->show();
+    erodePopup->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    erodePopup->resize(400,267-100);
+    erodePopup->init(ErodePopup::DILATE_MODE);
+}
+
+
+
 

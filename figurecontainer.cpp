@@ -73,13 +73,8 @@ void FigureContainer::Mouse_left_up()
 
 void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
 {
-    //ui->pushButton->setText("Weshhhh");
-    ui->pushButton->setText(QString("X = %1 & Y = %2").arg(scaleX).arg(scaleY));
-
-    //Mat* out = new cv::Mat();
-    //Mat* out = cv::imread("./shinzo.jpg");
     *image = ImageTransformer::resize(*image, scaleX, scaleY);
-    std::cout << image->cols << "  " << image->rows;
+
     ui->myLabel->setupImage(image);
     ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
                       (ui->figureFrame->height() - ui->myLabel->height())/2);
@@ -88,11 +83,6 @@ void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
 
 void FigureContainer::LightenConfirmed(double lightenIntensity)
 {
-    //ui->pushButton->setText("Weshhhh");
-    ui->pushButton->setText(QString("L = %1").arg(lightenIntensity));
-
-    //Mat* out = new cv::Mat();
-    //Mat* out = cv::imread("./shinzo.jpg");
     *image = ImageTransformer::LightenDarken(*image, lightenIntensity);
 
     ui->myLabel->setupImage(image);
@@ -102,10 +92,21 @@ void FigureContainer::CannyConfirmed(double low, double high, int kernel)
 {
     ui->pushButton->setText(QString("zeybb L = %1").arg(low));
 
-
     *image = ImageTransformer::canny(*image, low, high, kernel);
 
-    //std::cout << out->rows << " " << out->cols << "wesh" << std::endl;
+    ui->myLabel->setupImage(image);
+}
+
+void FigureContainer::ErodeConfirmed(int kernelType, int kernelSize)
+{
+    *image = ImageTransformer::erosion(*image, kernelSize, kernelType);
+
+    ui->myLabel->setupImage(image);
+}
+
+void FigureContainer::DilateConfirmed(int kernelType, int kernelSize)
+{
+    *image = ImageTransformer::dilatation(*image, kernelSize, kernelType);
 
     ui->myLabel->setupImage(image);
 }
