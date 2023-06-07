@@ -12,6 +12,9 @@ namespace Ui {
 class FigureContainer;
 }
 
+enum InteractionType { DRAG, DRAW };
+
+
 class FigureContainer : public QWidget
 {
     Q_OBJECT
@@ -32,15 +35,18 @@ private slots:
     void DilateConfirmed(int kernelType, int kernelSize);
     void FilterConfirmed(int filterType);
 
+    void SetInteractionType(InteractionType newInteractionType);
+    void SetPickedColor(cv::Scalar newColor);
+
 private:
     Ui::FigureContainer *ui;
     cv::Mat* image;
     cv::Mat* displayedImage;
 
+    InteractionType currentInteraction;
+    cv::Scalar currentPickedColor;
     int clickPosX, clickPosY;
     bool isDragging;
-    float zoom;
-
 };
 
 #endif // FIGURECONTAINER_H

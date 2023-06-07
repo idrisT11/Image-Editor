@@ -35,6 +35,8 @@ FigureContainer::FigureContainer(QWidget *parent) :
 
 
     isDragging = false;
+    currentInteraction = DRAG;
+    currentPickedColor = cv::Scalar(0, 0, 255);
 }
 
 FigureContainer::~FigureContainer()
@@ -46,12 +48,22 @@ void FigureContainer::Mouse_current_pos()
 {
     ui->pushButton->setText(QString("X = %1 & Y = %2").arg(ui->figureFrame->x).arg(ui->figureFrame->y));
 
-    if (this->isDragging)
+    if (this->currentInteraction == DRAG && this->isDragging)
     {
         ui->myLabel->move(
             ui->figureFrame->x - this->clickPosX,
             ui->figureFrame->y - this->clickPosY
-          );
+        );
+    }
+
+    else if (this->currentInteraction == DRAW &&  this->isDragging)
+    {
+        double pointX = ui->myLabel->x,
+               pointY = ui->myLabel->y;
+
+        *image = ImageTransformer::drawPoint(*image, cv::Point(pointX, pointY), cv::Scalar(0, 0, 255), 3);
+
+        ui->myLabel->setupImage(image);
     }
 }
 
@@ -117,4 +129,18 @@ void FigureContainer::FilterConfirmed(int filterType)
     std::cout << image->cols << "  " << image->rows << std::endl;
 
     ui->myLabel->setupImage(image);
+}
+
+//=======================================================================
+// Interactions interface -----------------------------------------------
+//=======================================================================
+
+void FigureContainer::SetInteractionType(InteractionType newInteractionType)
+{
+    currentInteraction = newInteractionType;
+}
+
+void FigureContainer::SetPickedColor(cv::Scalar newColor)
+{
+    currentPickedColor = newColor;
 }

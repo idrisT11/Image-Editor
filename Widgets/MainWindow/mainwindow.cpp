@@ -36,6 +36,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->widget_4->erodePopup, SIGNAL(Apply_Dilate(int,int)), ui->mainFrame, SLOT(DilateConfirmed(int,int)));
 
     connect(ui->widget_4, SIGNAL(Apply_Filter(int)), ui->mainFrame, SLOT(FilterConfirmed(int)));
+
+    // Left-Interface
+    connect(ui->leftInterface, SIGNAL(Set_Interaction_Mode(InteractionType)), ui->mainFrame, SLOT(SetInteractionType(InteractionType)));
+
 }
 
 MainWindow::~MainWindow()
