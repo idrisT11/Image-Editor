@@ -61,7 +61,7 @@ void FigureContainer::Mouse_current_pos()
         double pointX = ui->myLabel->x,
                pointY = ui->myLabel->y;
 
-        *image = ImageTransformer::drawPoint(*image, cv::Point(pointX, pointY), cv::Scalar(0, 0, 255), 3);
+        *image = ImageTransformer::drawPoint(*image, cv::Point(pointX, pointY), currentPickedColor, 3);
 
         ui->myLabel->setupImage(image);
     }
@@ -72,6 +72,11 @@ void FigureContainer::Mouse_left_click()
     this->isDragging = true;
     this->clickPosX = ui->myLabel->x;//this value is relative to the figurecontent
     this->clickPosY = ui->myLabel->y;
+
+    if(currentInteraction == DRAW)
+    {
+        historyManager.pushAction(*image);
+    }
 }
 
 void FigureContainer::Mouse_left_up()
@@ -85,6 +90,8 @@ void FigureContainer::Mouse_left_up()
 
 void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
 {
+    historyManager.pushAction(*image);
+
     *image = ImageTransformer::resize(*image, scaleX, scaleY);
 
     ui->myLabel->setupImage(image);
@@ -95,6 +102,8 @@ void FigureContainer::ResizeConfirmed(double scaleX, double scaleY)
 
 void FigureContainer::LightenConfirmed(double lightenIntensity)
 {
+    historyManager.pushAction(*image);
+
     *image = ImageTransformer::LightenDarken(*image, lightenIntensity);
 
     ui->myLabel->setupImage(image);
@@ -102,7 +111,7 @@ void FigureContainer::LightenConfirmed(double lightenIntensity)
 
 void FigureContainer::CannyConfirmed(double low, double high, int kernel)
 {
-    ui->pushButton->setText(QString("zeybb L = %1").arg(low));
+    historyManager.pushAction(*image);
 
     *image = ImageTransformer::canny(*image, low, high, kernel);
 
@@ -111,6 +120,8 @@ void FigureContainer::CannyConfirmed(double low, double high, int kernel)
 
 void FigureContainer::ErodeConfirmed(int kernelType, int kernelSize)
 {
+    historyManager.pushAction(*image);
+
     *image = ImageTransformer::erosion(*image, kernelSize, kernelType);
 
     ui->myLabel->setupImage(image);
@@ -118,6 +129,8 @@ void FigureContainer::ErodeConfirmed(int kernelType, int kernelSize)
 
 void FigureContainer::DilateConfirmed(int kernelType, int kernelSize)
 {
+    historyManager.pushAction(*image);
+
     *image = ImageTransformer::dilatation(*image, kernelSize, kernelType);
 
     ui->myLabel->setupImage(image);
@@ -125,6 +138,8 @@ void FigureContainer::DilateConfirmed(int kernelType, int kernelSize)
 
 void FigureContainer::FilterConfirmed(int filterType)
 {
+    historyManager.pushAction(*image);
+
     *image = ImageTransformer::applyFilter(*image, filterType);
     std::cout << image->cols << "  " << image->rows << std::endl;
 
@@ -132,7 +147,7 @@ void FigureContainer::FilterConfirmed(int filterType)
 }
 
 //=======================================================================
-// Interactions interface -----------------------------------------------
+// Interactions interface slots -----------------------------------------
 //=======================================================================
 
 void FigureContainer::SetInteractionType(InteractionType newInteractionType)
@@ -144,3 +159,19 @@ void FigureContainer::SetPickedColor(cv::Scalar newColor)
 {
     currentPickedColor = newColor;
 }
+
+//=======================================================================
+// Action History Slots -------------------------------------------------
+//=======================================================================
+void FigureContainer::UndoAction()
+{
+    *image = historyManager.undoAction(*image);
+
+    ui->myLabel->setupImage(image);
+}
+
+void FigureContainer::RedoAction()
+{
+    *image = historyManager.undoAction(*image);
+}
+
