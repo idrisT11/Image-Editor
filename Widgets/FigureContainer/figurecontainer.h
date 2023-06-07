@@ -8,9 +8,14 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
+#include "Classes/HistoryManager/HistoryManager.h"
+
 namespace Ui {
 class FigureContainer;
 }
+
+enum InteractionType { DRAG, DRAW };
+
 
 class FigureContainer : public QWidget
 {
@@ -32,15 +37,23 @@ private slots:
     void DilateConfirmed(int kernelType, int kernelSize);
     void FilterConfirmed(int filterType);
 
+    void SetInteractionType(InteractionType newInteractionType);
+    void SetPickedColor(cv::Scalar newColor);
+    void UndoAction();
+    void RedoAction();
+
 private:
     Ui::FigureContainer *ui;
     cv::Mat* image;
     cv::Mat* displayedImage;
 
+    HistoryManager historyManager;
+
+
+    InteractionType currentInteraction;
+    cv::Scalar currentPickedColor;
     int clickPosX, clickPosY;
     bool isDragging;
-    float zoom;
-
 };
 
 #endif // FIGURECONTAINER_H
