@@ -40,12 +40,15 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,1">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5,1">
        <item>
-        <widget class="FigureContainer" name="MainFrame" native="true"/>
+        <widget class="LeftInterface" name="leftInterface" native="true"/>
        </item>
        <item>
-        <widget class="QWidget" name="RightInterface" native="true">
+        <widget class="FigureContainer" name="mainFrame" native="true"/>
+       </item>
+       <item>
+        <widget class="QWidget" name="rightInterface" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="ToolsWidget" name="widget_4" native="true"/>
@@ -191,6 +194,12 @@ background-color: rgb(100,100, 100);</string>
    <class>ToolsWidget</class>
    <extends>QWidget</extends>
    <header>Widgets/ToolWidget/toolswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LeftInterface</class>
+   <extends>QWidget</extends>
+   <header>Widgets/LeftInterface/leftinterface.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -29,13 +29,13 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // Event: When user click on apply resize
-    connect(ui->widget_4->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->MainFrame, SLOT(ResizeConfirmed(double,double)));
-    connect(ui->widget_4->lightenPopup, SIGNAL(Apply_LightIntensity(double)), ui->MainFrame, SLOT(LightenConfirmed(double)));
-    connect(ui->widget_4->cannyPopup, SIGNAL(Apply_Canny(double,double,int)), ui->MainFrame, SLOT(CannyConfirmed(double,double,int)));
-    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Erode(int,int)), ui->MainFrame, SLOT(ErodeConfirmed(int,int)));
-    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Dilate(int,int)), ui->MainFrame, SLOT(DilateConfirmed(int,int)));
+    connect(ui->widget_4->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->mainFrame, SLOT(ResizeConfirmed(double,double)));
+    connect(ui->widget_4->lightenPopup, SIGNAL(Apply_LightIntensity(double)), ui->mainFrame, SLOT(LightenConfirmed(double)));
+    connect(ui->widget_4->cannyPopup, SIGNAL(Apply_Canny(double,double,int)), ui->mainFrame, SLOT(CannyConfirmed(double,double,int)));
+    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Erode(int,int)), ui->mainFrame, SLOT(ErodeConfirmed(int,int)));
+    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Dilate(int,int)), ui->mainFrame, SLOT(DilateConfirmed(int,int)));
 
-    connect(ui->widget_4, SIGNAL(Apply_Filter(int)), ui->MainFrame, SLOT(FilterConfirmed(int)));
+    connect(ui->widget_4, SIGNAL(Apply_Filter(int)), ui->mainFrame, SLOT(FilterConfirmed(int)));
 }
 
 MainWindow::~MainWindow()

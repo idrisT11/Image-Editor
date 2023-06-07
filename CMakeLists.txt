@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
 
         ${WIDGETS_DIR}/LayerWidget/layerwidget.h         ${WIDGETS_DIR}/LayerWidget/layerwidget.cpp ${WIDGETS_DIR}/LayerWidget/layerwidget.ui
         ${WIDGETS_DIR}/ToolWidget/toolswidget.h          ${WIDGETS_DIR}/ToolWidget/toolswidget.cpp  ${WIDGETS_DIR}/ToolWidget/toolswidget.ui
+        ${WIDGETS_DIR}/LeftInterface/leftinterface.h     ${WIDGETS_DIR}/LeftInterface/leftinterface.cpp ${WIDGETS_DIR}/LeftInterface/leftinterface.ui
 
         ${WIDGETS_DIR}/FigureContainer/figurecontainer.h ${WIDGETS_DIR}/FigureContainer/figurecontainer.cpp ${WIDGETS_DIR}/FigureContainer/figurecontainer.ui
         ${WIDGETS_DIR}/FigureContent/figurecontent.h     ${WIDGETS_DIR}/FigureContent/figurecontent.cpp #figurecontent.ui
