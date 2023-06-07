@@ -43,6 +43,7 @@ set(PROJECT_SOURCES
 
         ${CLASSES_DIR}/LayerManager/LayerManager.h ${CLASSES_DIR}/LayerManager/LayerManager.cpp
         ${CLASSES_DIR}/ImageTransformer/ImageTransformer.h ${CLASSES_DIR}/ImageTransformer/ImageTransformer.cpp
+        ${CLASSES_DIR}/HistoryManager/HistoryManager.h  ${CLASSES_DIR}/HistoryManager/HistoryManager.cpp
 
         res.qrc
         ${TS_FILES}

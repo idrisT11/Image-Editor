@@ -8,6 +8,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
+#include "Classes/HistoryManager/HistoryManager.h"
+
 namespace Ui {
 class FigureContainer;
 }
@@ -37,11 +39,16 @@ private slots:
 
     void SetInteractionType(InteractionType newInteractionType);
     void SetPickedColor(cv::Scalar newColor);
+    void UndoAction();
+    void RedoAction();
 
 private:
     Ui::FigureContainer *ui;
     cv::Mat* image;
     cv::Mat* displayedImage;
+
+    HistoryManager historyManager;
+
 
     InteractionType currentInteraction;
     cv::Scalar currentPickedColor;

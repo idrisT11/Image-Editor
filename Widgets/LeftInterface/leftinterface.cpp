@@ -42,8 +42,73 @@ void LeftInterface::on_penButton_clicked()
 
 void LeftInterface::on_redButton_clicked()
 {
-    cv::Scalar s = COLORMAP["RED"];
+    emit Set_Picked_Color(COLORMAP["RED"]);
+}
 
-    emit Set_Picked_Color(s);
+void LeftInterface::on_orangeButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["ORANGE"]);
+}
+
+void LeftInterface::on_yellowButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["YELLOW"]);
+}
+
+void LeftInterface::on_greenButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["GREEN"]);
+}
+
+void LeftInterface::on_cyanButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["CYAN"]);
+}
+
+void LeftInterface::on_blueButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["BLUE"]);
+}
+
+void LeftInterface::on_purpleButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["PURPLE"]);
+}
+
+void LeftInterface::on_violetButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["VIOLET"]);
+}
+
+void LeftInterface::on_pinkButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["PINK"]);
+}
+
+void LeftInterface::on_whiteButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["WHITE"]);
+}
+
+void LeftInterface::on_greyButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["GREY"]);
+}
+
+void LeftInterface::on_blackButton_clicked()
+{
+    emit Set_Picked_Color(COLORMAP["BLACK"]);
+}
+
+// ACTION HISTORY SLOTS : --------------------------------------
+// -------------------------------------------------------------
+void LeftInterface::on_redoButton_clicked()
+{
+    emit Action_Redo();
+}
+
+void LeftInterface::on_undoButton_clicked()
+{
+    emit Action_Undo();
 }
 

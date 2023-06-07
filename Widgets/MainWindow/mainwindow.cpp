@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Left-Interface
     connect(ui->leftInterface, SIGNAL(Set_Interaction_Mode(InteractionType)), ui->mainFrame, SLOT(SetInteractionType(InteractionType)));
+    connect(ui->leftInterface, SIGNAL(Set_Picked_Color(cv::Scalar)), ui->mainFrame, SLOT(SetPickedColor(cv::Scalar)));
+    connect(ui->leftInterface, SIGNAL(Action_Redo()), ui->mainFrame, SLOT(RedoAction()));
+    connect(ui->leftInterface, SIGNAL(Action_Undo()), ui->mainFrame, SLOT(UndoAction()));
 
 }
 
