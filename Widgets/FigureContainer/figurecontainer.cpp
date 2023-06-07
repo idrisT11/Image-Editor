@@ -46,8 +46,6 @@ FigureContainer::~FigureContainer()
 
 void FigureContainer::Mouse_current_pos()
 {
-    ui->pushButton->setText(QString("X = %1 & Y = %2").arg(ui->figureFrame->x).arg(ui->figureFrame->y));
-
     if (this->currentInteraction == DRAG && this->isDragging)
     {
         ui->myLabel->move(
@@ -56,7 +54,7 @@ void FigureContainer::Mouse_current_pos()
         );
     }
 
-    else if (this->currentInteraction == DRAW &&  this->isDragging)
+    else if (this->currentInteraction == DRAW && this->isDragging)
     {
         double pointX = ui->myLabel->x,
                pointY = ui->myLabel->y;
@@ -69,14 +67,17 @@ void FigureContainer::Mouse_current_pos()
 
 void FigureContainer::Mouse_left_click()
 {
+    if(currentInteraction == DRAW)
+    {
+        cv::Mat tmp;              //We have to create a copy here because it looks like *image can be modified by
+        image->copyTo(tmp);       //the event of the slot Mouse_current_pos
+
+        historyManager.pushAction(tmp);
+    }
+
     this->isDragging = true;
     this->clickPosX = ui->myLabel->x;//this value is relative to the figurecontent
     this->clickPosY = ui->myLabel->y;
-
-    if(currentInteraction == DRAW)
-    {
-        historyManager.pushAction(*image);
-    }
 }
 
 void FigureContainer::Mouse_left_up()
@@ -172,6 +173,8 @@ void FigureContainer::UndoAction()
 
 void FigureContainer::RedoAction()
 {
-    *image = historyManager.undoAction(*image);
+    *image = historyManager.redoAction(*image);
+
+    ui->myLabel->setupImage(image);
 }
 

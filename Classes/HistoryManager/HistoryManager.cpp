@@ -1,5 +1,6 @@
 
 #include "Classes/HistoryManager/HistoryManager.h"
+#include <iostream>
 
 HistoryManager::HistoryManager()
 {
@@ -14,7 +15,7 @@ void HistoryManager::pushAction(cv::Mat m)
 
 cv::Mat HistoryManager::undoAction(cv::Mat currentAction)
 {
-    if(this->imageHistory.empty())
+    if(!this->imageHistory.empty())
     {
         cv::Mat previousAction = this->imageHistory.back();
         this->imageHistory.pop_back();
@@ -31,7 +32,7 @@ cv::Mat HistoryManager::undoAction(cv::Mat currentAction)
 
 cv::Mat HistoryManager::redoAction(cv::Mat currentAction)
 {
-    if(this->undidImageHistory.empty())
+    if(!this->undidImageHistory.empty())
     {
         cv::Mat nextAction = this->undidImageHistory.back();
         undidImageHistory.pop_back();
