@@ -30,7 +30,6 @@ private slots:
     void on_dilateButton_clicked();
     void on_erodeButton_clicked();
     void on_blurButton_clicked();
-
     void on_sobelButton_clicked();
 
 private:
@@ -38,6 +37,7 @@ private:
 
 signals:
     void Apply_Filter(int);
+    void Apply_Face_Recognition();
 
 };
 

@@ -7,5 +7,8 @@
         <file>ressources/vgath-logo.png</file>
         <file>ressources/hand_cursor_icon.png</file>
         <file>ressources/pen_icon.png</file>
+        <file>ressources/trash_icon.png</file>
+        <file>ressources/add_icon.png</file>
+        <file>ressources/eye_icon.png</file>
     </qresource>
 </RCC>

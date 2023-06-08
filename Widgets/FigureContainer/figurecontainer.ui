@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1193</width>
-    <height>702</height>
+    <height>986</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -19,70 +19,44 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>1090</x>
-     <y>250</y>
-     <width>93</width>
-     <height>29</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: #FFF;</string>
-   </property>
-   <property name="text">
-    <string>lol</string>
-   </property>
-  </widget>
-  <widget class="FigureFrame" name="figureFrame">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>30</y>
-     <width>1041</width>
-     <height>611</height>
-    </rect>
-   </property>
-   <property name="mouseTracking">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 1px solid #666;
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="FigureFrame" name="figureFrame">
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid #666;
 background-color: #444;
 border-radius: 2px;
 </string>
-   </property>
-   <widget class="FigureContent" name="myLabel">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>63</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: none;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-  </widget>
-  <zorder>figureFrame</zorder>
-  <zorder>pushButton</zorder>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="FigureContent" name="myLabel">
+        <property name="styleSheet">
+         <string notr="true">border: none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
    <class>FigureContent</class>
    <extends>QLabel</extends>
-   <header location="global">figurecontent.h</header>
+   <header>Widgets/FigureContent/figurecontent.h</header>
   </customwidget>
   <customwidget>
    <class>FigureFrame</class>
    <extends>QFrame</extends>
-   <header location="global">figureframe.h</header>
+   <header>Widgets/FigureFrame/figureframe.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

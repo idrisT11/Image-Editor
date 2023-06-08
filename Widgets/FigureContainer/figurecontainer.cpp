@@ -22,8 +22,11 @@ FigureContainer::FigureContainer(QWidget *parent) :
     *image = cv::imread("./shinzo.jpg");
     ui->myLabel->setupImage(image);
 
-    ui->myLabel->move((ui->figureFrame->width() - ui->myLabel->width())/2,
-                      (ui->figureFrame->height() - ui->myLabel->height())/2);
+    std::cout << ui->figureFrame->width() << "??" << this->width() << "--" <<  ui->figureFrame->geometry().width() << std::endl;
+    std::cout << ui->figureFrame->height() << "??" << this->height() << "--" <<  ui->figureFrame->geometry().height() << std::endl;
+
+    //ui->myLabel->move((this->width() - ui->myLabel->width()-100)/2,
+    //                  (this->height() - ui->myLabel->height()-00)/2);
 
     ui->figureFrame->setup();
 
@@ -46,6 +49,7 @@ FigureContainer::~FigureContainer()
 
 void FigureContainer::Mouse_current_pos()
 {
+
     if (this->currentInteraction == DRAG && this->isDragging)
     {
         ui->myLabel->move(

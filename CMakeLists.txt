@@ -29,6 +29,8 @@ set(PROJECT_SOURCES
         ${WIDGETS_DIR}/MainWindow/mainwindow.ui
 
         ${WIDGETS_DIR}/LayerWidget/layerwidget.h         ${WIDGETS_DIR}/LayerWidget/layerwidget.cpp ${WIDGETS_DIR}/LayerWidget/layerwidget.ui
+        ${WIDGETS_DIR}/LayerWidget/Item/layeritemwidget.h         ${WIDGETS_DIR}/LayerWidget/Item/layeritemwidget.cpp ${WIDGETS_DIR}/LayerWidget/Item/layeritemwidget.ui
+
         ${WIDGETS_DIR}/ToolWidget/toolswidget.h          ${WIDGETS_DIR}/ToolWidget/toolswidget.cpp  ${WIDGETS_DIR}/ToolWidget/toolswidget.ui
         ${WIDGETS_DIR}/LeftInterface/leftinterface.h     ${WIDGETS_DIR}/LeftInterface/leftinterface.cpp ${WIDGETS_DIR}/LeftInterface/leftinterface.ui
 
