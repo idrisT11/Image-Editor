@@ -146,13 +146,14 @@ void FigureContainer::FilterConfirmed(int filterType)
     historyManager.pushAction(*image);
 
     *image = ImageTransformer::applyFilter(*image, filterType);
-    std::cout << image->cols << "  " << image->rows << std::endl;
 
     ui->myLabel->setupImage(image);
 }
 
 void FigureContainer::DetectFaceConfirmed()
 {
+    historyManager.pushAction(*image);
+
     Ptr<LBPHFaceRecognizer> recognizer = LBPHFaceRecognizer::create();
     std::string cascadePath = "C:/Users/knob/Documents/GitHub/Image-Editor/Image-Editor/ressources/faceDetection/haarcascades/haarcascade_frontalface_alt.xml";
 
@@ -165,9 +166,8 @@ void FigureContainer::DetectFaceConfirmed()
     recognizer->read("C:/Users/knob/Documents/GitHub/Image-Editor/Image-Editor/ressources/faceDetection/recognizer/trained_recognizer.yml");
 
 
-    historyManager.pushAction(*image);
-
     *image = ImageTransformer::detectAndRecognizeFaces(*image, cascade, recognizer, 1.1);
+
     ui->myLabel->setupImage(image);
 }
 
