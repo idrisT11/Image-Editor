@@ -31,6 +31,7 @@ private slots:
     void on_erodeButton_clicked();
     void on_blurButton_clicked();
     void on_sobelButton_clicked();
+    void on_facialButton_clicked();
 
 private:
     Ui::ToolsWidget *ui;

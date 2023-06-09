@@ -70,7 +70,7 @@ void ToolsWidget::on_sobelButton_clicked()
     emit Apply_Filter(ImageTransformer::SOBEL);
 }
 
-void ToolsWidget::on_faceRecognition_clicked()
+void ToolsWidget::on_facialButton_clicked()
 {
     emit Apply_Face_Recognition();
 }

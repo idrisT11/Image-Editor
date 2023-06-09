@@ -36,6 +36,7 @@ private slots:
     void ErodeConfirmed(int kernelType, int kernelSize);
     void DilateConfirmed(int kernelType, int kernelSize);
     void FilterConfirmed(int filterType);
+    void DetectFaceConfirmed();
 
     void SetInteractionType(InteractionType newInteractionType);
     void SetPickedColor(cv::Scalar newColor);

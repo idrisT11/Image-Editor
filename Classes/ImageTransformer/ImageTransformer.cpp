@@ -1,5 +1,10 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/face.hpp>
+#include <vector>
+#include <dirent.h>
+#include <cstdlib>
 #include <iostream>
 
 #include "ImageTransformer.h"
@@ -163,3 +168,52 @@ Mat ImageTransformer::LightenDarken (Mat& image, double lightIntensity){
     }
     return lightenDarken_image;
 }
+
+//=============================================================
+
+Mat ImageTransformer::detectAndRecognizeFaces(Mat img, CascadeClassifier& cascade, Ptr<LBPHFaceRecognizer>& recognizer, double scale){
+    Mat gray;
+    cvtColor(img, gray, COLOR_BGR2GRAY);
+    equalizeHist(gray, gray);
+    Mat out = img;
+
+    const std::vector<std::string> names = {"Lula", "Shinzo"};
+
+    std::vector<Rect> faces;
+    cascade.detectMultiScale(gray, faces, scale, 3, 0 | CASCADE_SCALE_IMAGE, Size(30, 30));
+
+    for (const Rect& faceRect : faces)
+    {
+        // Draw rectangle around the face
+        rectangle(out, faceRect, Scalar(255, 0, 0), 2);
+
+        // Preprocess the face region for recognition (e.g., resize, convert to grayscale)
+        Mat faceROI = gray(faceRect);
+        cv::resize(faceROI, faceROI, Size(128, 128));
+
+        // Recognize the face
+        int predictedLabel = -1;
+        double confidence = 0.0;
+        recognizer->predict(faceROI, predictedLabel, confidence);
+
+        // Display the recognized label and confidence
+        std::string label;
+        if (predictedLabel != -1)
+        {
+           // Get the label associated with the predicted face
+           label = recognizer->getLabelInfo(predictedLabel);
+        }
+        else
+        {
+           label = "Unknown";
+        }
+
+        std::string confidenceStr = "Confidence: " + std::to_string(confidence);
+        putText(out, names[predictedLabel], Point(faceRect.x, faceRect.y - 10), FONT_HERSHEY_SIMPLEX, 0.9, Scalar(0, 255, 0), 2);
+        putText(out, confidenceStr, Point(faceRect.x, faceRect.y + faceRect.height + 20), FONT_HERSHEY_SIMPLEX, 0.7, Scalar(0, 255, 0), 2);
+    }
+
+    return out;
+}
+
+

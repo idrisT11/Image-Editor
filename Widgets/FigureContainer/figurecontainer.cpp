@@ -151,6 +151,26 @@ void FigureContainer::FilterConfirmed(int filterType)
     ui->myLabel->setupImage(image);
 }
 
+void FigureContainer::DetectFaceConfirmed()
+{
+    Ptr<LBPHFaceRecognizer> recognizer = LBPHFaceRecognizer::create();
+    std::string cascadePath = "C:/Users/knob/Documents/GitHub/Image-Editor/Image-Editor/ressources/faceDetection/haarcascades/haarcascade_frontalface_alt.xml";
+
+    CascadeClassifier cascade;
+    if (!cascade.load(cascadePath))
+    {
+        std::cerr << "Failed to load cascade classifier." << std::endl;
+        return;
+    }
+    recognizer->read("C:/Users/knob/Documents/GitHub/Image-Editor/Image-Editor/ressources/faceDetection/recognizer/trained_recognizer.yml");
+
+
+    historyManager.pushAction(*image);
+
+    *image = ImageTransformer::detectAndRecognizeFaces(*image, cascade, recognizer, 1.1);
+    ui->myLabel->setupImage(image);
+}
+
 //=======================================================================
 // Interactions interface slots -----------------------------------------
 //=======================================================================

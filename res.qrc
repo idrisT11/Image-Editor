@@ -11,4 +11,8 @@
         <file>ressources/add_icon.png</file>
         <file>ressources/eye_icon.png</file>
     </qresource>
+    <qresource prefix="/faceDetection">
+        <file>ressources/faceDetection/recognizer/trained_recognizer.yml</file>
+        <file>ressources/faceDetection/haarcascades/haarcascade_frontalface_alt.xml</file>
+    </qresource>
 </RCC>

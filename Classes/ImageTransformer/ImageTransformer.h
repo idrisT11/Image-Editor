@@ -1,10 +1,16 @@
 #ifndef IMAGETRANSFORMER_H
 #define IMAGETRANSFORMER_H
 #include <opencv2/opencv.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/face.hpp>
+#include <vector>
+#include <dirent.h>
+#include <cstdlib>
 #include <iostream>
 
 // Important: Add the opencv includes here
 using namespace cv;
+using namespace cv::face;
 
 class ImageTransformer
 {
@@ -23,6 +29,7 @@ public:
     static Mat LightenDarken (Mat& image, double lightIntensity);
     static Mat dilatation(Mat& img, int kernel_size, int kernel_type=MATHMORPH_ELLIPSE);
     static Mat erosion(Mat& img, int kernel_size, int kernel_type=MATHMORPH_ELLIPSE);
+    static Mat detectAndRecognizeFaces(Mat img, CascadeClassifier& cascade, Ptr<cv::face::LBPHFaceRecognizer>& recognizer, double scale);
 
 };
 
