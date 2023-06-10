@@ -43,15 +43,15 @@ MainWindow::MainWindow(QWidget *parent)
     //=======================================================================
     // Tools&Popup Events ---------------------------------------------------
     //=======================================================================
-    connect(ui->widget_4->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->mainFrame, SLOT(ResizeConfirmed(double,double)));
-    connect(ui->widget_4->lightenPopup, SIGNAL(Apply_LightIntensity(double)), ui->mainFrame, SLOT(LightenConfirmed(double)));
-    connect(ui->widget_4->cannyPopup, SIGNAL(Apply_Canny(double,double,int)), ui->mainFrame, SLOT(CannyConfirmed(double,double,int)));
-    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Erode(int,int)), ui->mainFrame, SLOT(ErodeConfirmed(int,int)));
-    connect(ui->widget_4->erodePopup, SIGNAL(Apply_Dilate(int,int)), ui->mainFrame, SLOT(DilateConfirmed(int,int)));
+    connect(ui->toolsWidget->resizePopup, SIGNAL(Apply_Scale(double,double)), ui->mainFrame, SLOT(ResizeConfirmed(double,double)));
+    connect(ui->toolsWidget->lightenPopup, SIGNAL(Apply_LightIntensity(double)), ui->mainFrame, SLOT(LightenConfirmed(double)));
+    connect(ui->toolsWidget->cannyPopup, SIGNAL(Apply_Canny(double,double,int)), ui->mainFrame, SLOT(CannyConfirmed(double,double,int)));
+    connect(ui->toolsWidget->erodePopup, SIGNAL(Apply_Erode(int,int)), ui->mainFrame, SLOT(ErodeConfirmed(int,int)));
+    connect(ui->toolsWidget->erodePopup, SIGNAL(Apply_Dilate(int,int)), ui->mainFrame, SLOT(DilateConfirmed(int,int)));
 
-    connect(ui->widget_4, SIGNAL(Apply_Filter(int)), ui->mainFrame, SLOT(FilterConfirmed(int)));
-    connect(ui->widget_4, SIGNAL(Apply_Face_Recognition()), ui->mainFrame, SLOT(DetectFaceConfirmed()));
-    connect(ui->widget_4, SIGNAL(Apply_Panorama()), ui->mainFrame, SLOT(PanoramaConfirmed()));
+    connect(ui->toolsWidget, SIGNAL(Apply_Filter(int)), ui->mainFrame, SLOT(FilterConfirmed(int)));
+    connect(ui->toolsWidget, SIGNAL(Apply_Face_Recognition()), ui->mainFrame, SLOT(DetectFaceConfirmed()));
+    connect(ui->toolsWidget, SIGNAL(Apply_Panorama()), ui->mainFrame, SLOT(PanoramaConfirmed()));
 
     //=======================================================================
     // Left Interface Events ------------------------------------------------

@@ -42,19 +42,27 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5,1">
        <item>
-        <widget class="LeftInterface" name="leftInterface" native="true"/>
+        <widget class="LeftInterface" name="leftInterface" native="true">
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid #555;</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="FigureContainer" name="mainFrame" native="true"/>
        </item>
        <item>
         <widget class="QWidget" name="rightInterface" native="true">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
-           <widget class="ToolsWidget" name="widget_4" native="true"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="LayerWidget" name="widget_3" native="true"/>
+           <widget class="ToolsWidget" name="toolsWidget" native="true">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid #555;</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -188,12 +196,6 @@ background-color: rgb(100,100, 100);</string>
    <class>FigureContainer</class>
    <extends>QWidget</extends>
    <header>Widgets/FigureContainer/figurecontainer.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>LayerWidget</class>
-   <extends>QWidget</extends>
-   <header>Widgets/LayerWidget/layerwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

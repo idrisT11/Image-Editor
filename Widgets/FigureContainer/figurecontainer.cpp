@@ -198,7 +198,8 @@ void FigureContainer::DetectFaceConfirmed()
         return;
     }
     recognizer->read("./faceDetection/recognizer/trained_recognizer.yml");
-//C:/Users/knob/Documents/GitHub/Image-Editor/Image-Editor/ressources
+
+    //QFileInfo(":/faceDetection/haarcascades/haarcascade_frontalface_alt.xml").fileName();
 
     *image = ImageTransformer::detectAndRecognizeFaces(*image, cascade, recognizer, 1.1);
 

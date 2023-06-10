@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>210</width>
-    <height>459</height>
+    <width>267</width>
+    <height>969</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,11 +15,16 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(57,57, 57);
+boder: 1px solid white;
 </string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,5">
    <item>
     <widget class="QFrame" name="frame_2">
+     <property name="styleSheet">
+      <string notr="true">border-radius: 2px;
+border: none;</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
@@ -35,6 +40,9 @@
       </property>
       <item>
        <widget class="QLabel" name="Icon">
+        <property name="styleSheet">
+         <string notr="true">border: none;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -52,7 +60,8 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: #EEE;</string>
+         <string notr="true">color: #EEE;
+border: none;</string>
         </property>
         <property name="text">
          <string>Tools</string>
@@ -65,8 +74,9 @@
    <item>
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
-      <string notr="true">background-color: #777;
-border-radius: 4px;</string>
+      <string notr="true">border-radius: 2px;
+padding: 4px;
+border: none;</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -74,119 +84,354 @@ border-radius: 4px;</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="6" column="0">
-       <widget class="QPushButton" name="lightenButton">
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0">
+      <item>
+       <widget class="QFrame" name="frame_3">
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Lighten</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="blurButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
+         <string notr="true">border-radius: 3px;
+border: 1px solid #555;
+margin-top: 12px;
 </string>
         </property>
-        <property name="text">
-         <string>Blur</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">border: none;
+color: white;
+font-weight: bold;
+margin-top: 0px;</string>
+           </property>
+           <property name="text">
+            <string>Basic Operations:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="resizeButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Resize</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/resize_icon.png</normaloff>:/images/ressources/resize_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="lightenButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Lighten</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/light_icon.png</normaloff>:/images/ressources/light_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QPushButton" name="pushButton_3">
+      <item>
+       <widget class="QFrame" name="frame_4">
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
+         <string notr="true">border-radius: 3px;
+border: 1px solid #555;
+margin-top: 12px;
 </string>
         </property>
-        <property name="text">
-         <string>Canny</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="styleSheet">
+            <string notr="true">border: none;
+color: white;
+font-weight: bold;
+margin-top: 0px;</string>
+           </property>
+           <property name="text">
+            <string>Math-Morphology:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="erodeButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Erode</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/erode_icon.png</normaloff>:/images/ressources/erode_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="dilateButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Dilate</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/dilate_icon.png</normaloff>:/images/ressources/dilate_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="dilateButton">
+      <item>
+       <widget class="QFrame" name="frame_5">
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
+         <string notr="true">border-radius: 3px;
+border: 1px solid #555;
+margin-top: 12px;
 </string>
         </property>
-        <property name="text">
-         <string>Dilate</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="styleSheet">
+            <string notr="true">border: none;
+color: white;
+font-weight: bold;
+margin-top: 0px;</string>
+           </property>
+           <property name="text">
+            <string>Filters:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="blurButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Blur</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/blur_icon.png</normaloff>:/images/ressources/blur_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Canny</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/canny_icon.png</normaloff>:/images/ressources/canny_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="sobelButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Sobel</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/sobel_icon.png</normaloff>:/images/ressources/sobel_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="erodeButton">
+      <item>
+       <widget class="QFrame" name="frame_6">
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
+         <string notr="true">border-radius: 3px;
+border: 1px solid #555;
+margin-top: 12px;
 </string>
         </property>
-        <property name="text">
-         <string>Erode</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="styleSheet">
+            <string notr="true">border: none;
+color: white;
+font-weight: bold;
+margin-top: 0px;</string>
+           </property>
+           <property name="text">
+            <string>Facial Operations:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="facialButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Face Detect</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/face_icon.png</normaloff>:/images/ressources/face_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="sobelButton">
+      <item>
+       <widget class="QFrame" name="frame_7">
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
+         <string notr="true">border-radius: 3px;
+border: 1px solid #555;
+margin-top: 12px;
 </string>
         </property>
-        <property name="text">
-         <string>Sobel</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="styleSheet">
+            <string notr="true">border: none;
+color: white;
+font-weight: bold;
+margin-top: 0px;</string>
+           </property>
+           <property name="text">
+            <string>MutliFile Operation:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="panoramaButton">
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;
+background-color: rgb(105, 105, 105);
+border-radius: 3px;
+border: none;
+padding: 5px 25px;
+margin-top: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Panorama</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../res.qrc">
+             <normaloff>:/images/ressources/panorama_icon.png</normaloff>:/images/ressources/panorama_icon.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
-      <item row="7" column="0">
-       <widget class="QPushButton" name="facialButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;</string>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-        <property name="text">
-         <string>Facial Detection</string>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="resizeButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Resize</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="panoramaButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Panorama</string>
-        </property>
-       </widget>
+       </spacer>
       </item>
      </layout>
     </widget>
