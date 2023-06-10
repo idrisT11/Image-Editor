@@ -4,8 +4,12 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
-#include<QLabel>
+#include <QLabel>
 
+#include "Widgets/LayerWidget/layerwidget.h"
+#include "Widgets/FigureContainer/figurecontainer.h"
+#include "Widgets/AboutDialog/aboutdialog.h"
+#include "Widgets/HelpDialog/helpdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,7 +26,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QLabel *lbl;
+    AboutDialog *aboutDialog;
+    HelpDialog *helpDialog;
     QString filePath;
 
 public slots:
@@ -31,6 +36,8 @@ public slots:
     void SaveFile();
     void SaveAsFile();
     void QuitWindow();
+    void OpenAbout();
+    void OpenHelp();
 
 signals:
     void Loaded_New_Image(std::string);

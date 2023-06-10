@@ -101,23 +101,19 @@ background-color: rgb(100,100, 100);</string>
     <addaction name="separator"/>
     <addaction name="actionClose_2"/>
    </widget>
-   <widget class="QMenu" name="menuTools">
-    <property name="title">
-     <string>Tools</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionInterface"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionAbout_Us"/>
    </widget>
    <addaction name="menuFiles"/>
-   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
    <addaction name="menuAbout"/>
   </widget>
@@ -174,6 +170,16 @@ background-color: rgb(100,100, 100);</string>
   <action name="actionClose_2">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionAbout_Us">
+   <property name="text">
+    <string>About Us</string>
+   </property>
+  </action>
+  <action name="actionInterface">
+   <property name="text">
+    <string>Interface Overview</string>
    </property>
   </action>
  </widget>

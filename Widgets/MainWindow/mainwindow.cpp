@@ -9,10 +9,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include "Widgets/LayerWidget/layerwidget.h"
-#include "Widgets/FigureContainer/figurecontainer.h"
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -29,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     // TabBar Events --------------------------------------------------------
     //=======================================================================
     filePath = "";
+    aboutDialog = new AboutDialog;
+    helpDialog = new HelpDialog;
+
     connect(ui->actionNewFile, SIGNAL(triggered()), this, SLOT(NewFile()));
     connect(ui->actionOpenFile, SIGNAL(triggered()), this, SLOT(OpenFile()));
     connect(ui->actionClose_2, SIGNAL(triggered()), this, SLOT(QuitWindow()));
@@ -38,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Loaded_New_Image(std::string)), ui->mainFrame, SLOT(LoadNewImage(std::string)));
     connect(this, SIGNAL(Loaded_Blank_Image()), ui->mainFrame, SLOT(LoadBlankImage()));
 
+    connect(ui->actionAbout_Us, SIGNAL(triggered()), this, SLOT(OpenAbout()));
+    connect(ui->actionInterface, SIGNAL(triggered()), this, SLOT(OpenHelp()));
 
     //=======================================================================
     // Tools&Popup Events ---------------------------------------------------
@@ -126,4 +127,19 @@ void MainWindow::SaveAsFile()
 void MainWindow::QuitWindow()
 {
     this->close();
+}
+
+void MainWindow::OpenAbout()
+{
+    aboutDialog->show();
+    aboutDialog->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    aboutDialog->resize(400, 250);
+}
+
+void MainWindow::OpenHelp()
+{
+    helpDialog->show();
+    helpDialog->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    helpDialog->resize(450, 490);
+
 }
