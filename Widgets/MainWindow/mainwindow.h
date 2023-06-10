@@ -23,9 +23,18 @@ public:
 private:
     Ui::MainWindow *ui;
     QLabel *lbl;
+    QString filePath;
 
 public slots:
+    void NewFile();
     void OpenFile();
+    void SaveFile();
+    void SaveAsFile();
+    void QuitWindow();
+
+signals:
+    void Loaded_New_Image(std::string);
+    void Loaded_Blank_Image();
 
 };
 

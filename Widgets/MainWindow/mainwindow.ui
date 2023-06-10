@@ -173,7 +173,7 @@ background-color: rgb(100,100, 100);</string>
   </action>
   <action name="actionClose_2">
    <property name="text">
-    <string>Close</string>
+    <string>Quit</string>
    </property>
   </action>
  </widget>

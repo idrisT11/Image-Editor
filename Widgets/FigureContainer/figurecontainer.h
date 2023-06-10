@@ -28,6 +28,7 @@ public:
 
 private slots:
     void LoadNewImage(std::string str);
+    void LoadBlankImage();
 
     void Mouse_current_pos();
     void Mouse_left_click();

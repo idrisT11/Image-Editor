@@ -20,8 +20,9 @@ FigureContainer::FigureContainer(QWidget *parent) :
     ui->setupUi(this);
 
     //Temporary: init image
-    image = new cv::Mat();
-    *image = cv::imread("./shinzo.jpg");
+    image = new cv::Mat(this->height()-500, this->width()-500, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    //*image = cv::imread("./shinzo.jpg");
     ui->myLabel->setupImage(image);
 
     std::cout << ui->figureFrame->width() << "??" << this->width() << "--" <<  ui->figureFrame->geometry().width() << std::endl;
@@ -48,6 +49,37 @@ FigureContainer::~FigureContainer()
 {
     delete ui;
 }
+
+//=======================================================================
+// File Management ------------------------------------------------------
+//=======================================================================
+
+cv::Mat FigureContainer::getCurrentImage()
+{
+    return *image;
+}
+
+void FigureContainer::LoadNewImage(std::string src)
+{
+    cv::Mat newImage = cv::imread(src);
+    if(newImage.empty())
+    {
+        return;
+    }
+    *image = newImage;
+    ui->myLabel->setupImage(image);
+}
+
+void FigureContainer::LoadBlankImage()
+{
+    *image = cv::Mat(500, this->width()-500, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    ui->myLabel->setupImage(image);
+}
+
+//=======================================================================
+// Mouse Interactions ---------------------------------------------------
+//=======================================================================
 
 void FigureContainer::Mouse_current_pos()
 {
