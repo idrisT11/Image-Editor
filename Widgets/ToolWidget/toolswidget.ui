@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>210</width>
-    <height>338</height>
+    <height>459</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/ressources/tools_icon.png</pixmap>
+         <pixmap resource="../../res.qrc">:/images/ressources/tools_icon.png</pixmap>
         </property>
        </widget>
       </item>
@@ -87,6 +87,19 @@ background-color: white;</string>
         </property>
        </widget>
       </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="blurButton">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+        </property>
+        <property name="text">
+         <string>Blur</string>
+        </property>
+       </widget>
+      </item>
       <item row="4" column="0">
        <widget class="QPushButton" name="pushButton_3">
         <property name="styleSheet">
@@ -97,44 +110,6 @@ background-color: white;
         </property>
         <property name="text">
          <string>Canny</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="resizeButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;</string>
-        </property>
-        <property name="text">
-         <string>Resize</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="sobelButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
-</string>
-        </property>
-        <property name="text">
-         <string>Sobel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="erodeButton">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-padding: 4px;
-background-color: white;
-</string>
-        </property>
-        <property name="text">
-         <string>Erode</string>
         </property>
        </widget>
       </item>
@@ -151,8 +126,8 @@ background-color: white;
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="blurButton">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="erodeButton">
         <property name="styleSheet">
          <string notr="true">border: 1px solid black;
 padding: 4px;
@@ -160,7 +135,20 @@ background-color: white;
 </string>
         </property>
         <property name="text">
-         <string>Blur</string>
+         <string>Erode</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="sobelButton">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;
+</string>
+        </property>
+        <property name="text">
+         <string>Sobel</string>
         </property>
        </widget>
       </item>
@@ -176,11 +164,37 @@ background-color: white;</string>
         </property>
        </widget>
       </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="resizeButton">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;</string>
+        </property>
+        <property name="text">
+         <string>Resize</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="panoramaButton">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+padding: 4px;
+background-color: white;</string>
+        </property>
+        <property name="text">
+         <string>Panorama</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../res.qrc"/>
+ </resources>
  <connections/>
 </ui>

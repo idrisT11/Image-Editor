@@ -32,6 +32,7 @@ private slots:
     void on_blurButton_clicked();
     void on_sobelButton_clicked();
     void on_facialButton_clicked();
+    void on_panoramaButton_clicked();
 
 private:
     Ui::ToolsWidget *ui;
@@ -39,6 +40,7 @@ private:
 signals:
     void Apply_Filter(int);
     void Apply_Face_Recognition();
+    void Apply_Panorama();
 
 };
 

@@ -1,8 +1,10 @@
 
 #include <QLabel>
+#include <QFileDialog>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/stitching.hpp>
 
 #include "Classes/ImageTransformer/ImageTransformer.h"
 #include "Widgets/FigureContainer/figurecontainer.h"
@@ -167,6 +169,34 @@ void FigureContainer::DetectFaceConfirmed()
 
 
     *image = ImageTransformer::detectAndRecognizeFaces(*image, cascade, recognizer, 1.1);
+
+    ui->myLabel->setupImage(image);
+}
+
+void FigureContainer::PanoramaConfirmed()
+{
+    historyManager.pushAction(*image);
+
+    std::vector<cv::Mat> imagesToProcess = {};
+
+    QStringList fileNames = QFileDialog::getOpenFileNames(this, "Open a file", "./", tr("Images(*.png *.jpg"));
+    for (int i = 0; i < fileNames.size(); ++i)
+    {
+        std::string fileName = fileNames.at(i).toLocal8Bit().constData();
+
+        cv::Mat img = cv::imread(fileName);
+        if (img.empty())
+        {
+            std::cout<< " - Cannot read image"<<std::endl;
+            return;
+        }
+
+        imagesToProcess.push_back(img);
+    }
+
+    imagesToProcess.push_back(*image);
+
+    *image = ImageTransformer::panorama(imagesToProcess);
 
     ui->myLabel->setupImage(image);
 }

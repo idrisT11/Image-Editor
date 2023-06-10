@@ -2,6 +2,8 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/face.hpp>
+#include <opencv2/stitching.hpp>
+
 #include <vector>
 #include <dirent.h>
 #include <cstdlib>
@@ -169,6 +171,22 @@ Mat ImageTransformer::LightenDarken (Mat& image, double lightIntensity){
     return lightenDarken_image;
 }
 
+Mat ImageTransformer::panorama(std::vector<Mat> imgs)
+{
+    Mat panorama;
+    Stitcher::Mode mode = Stitcher::PANORAMA;
+    Ptr<Stitcher> stitcher = Stitcher::create(mode);
+    Stitcher::Status status = stitcher->stitch(imgs, panorama);
+
+    std::cout << "Panorama Status : " << status << std::endl;
+
+    if (status != Stitcher::OK) {            //If error
+        std::cout << "Cannot apply stitch" << std::endl;
+        return imgs.back();
+    }
+
+    return panorama;
+}
 //=============================================================
 
 Mat ImageTransformer::detectAndRecognizeFaces(Mat img, CascadeClassifier& cascade, Ptr<LBPHFaceRecognizer>& recognizer, double scale){

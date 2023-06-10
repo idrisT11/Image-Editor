@@ -24,8 +24,11 @@ class FigureContainer : public QWidget
 public:
     explicit FigureContainer(QWidget *parent = nullptr);
     ~FigureContainer();
+    cv::Mat getCurrentImage();
 
 private slots:
+    void LoadNewImage(std::string str);
+
     void Mouse_current_pos();
     void Mouse_left_click();
     void Mouse_left_up();
@@ -37,6 +40,7 @@ private slots:
     void DilateConfirmed(int kernelType, int kernelSize);
     void FilterConfirmed(int filterType);
     void DetectFaceConfirmed();
+    void PanoramaConfirmed();
 
     void SetInteractionType(InteractionType newInteractionType);
     void SetPickedColor(cv::Scalar newColor);
@@ -49,7 +53,6 @@ private:
     cv::Mat* displayedImage;
 
     HistoryManager historyManager;
-
 
     InteractionType currentInteraction;
     cv::Scalar currentPickedColor;
