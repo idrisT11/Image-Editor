@@ -75,7 +75,6 @@ void ToolsWidget::on_facialButton_clicked()
     emit Apply_Face_Recognition();
 }
 
-
 void ToolsWidget::on_panoramaButton_clicked()
 {
     emit Apply_Panorama();
